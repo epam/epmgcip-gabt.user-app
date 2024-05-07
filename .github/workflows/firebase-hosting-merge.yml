@@ -17,5 +17,5 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_UZ_GABT_WEBAPP }}
           channelId: live
           projectId: uz-gabt-webapp
-        env:
-          FIREBASE_CLI_EXPERIMENTS: webframeworks
+          env:
+            FIREBASE_CLI_EXPERIMENTS: webframeworks

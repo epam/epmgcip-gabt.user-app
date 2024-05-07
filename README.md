@@ -39,5 +39,6 @@ The following environment variables are required for Firebase configuration:
 - NEXT_PUBLIC_FIREBASE_APP_ID
 - NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 
-## Environment Variables
+## Deployment
+
 The app is deployed manually on the Firebase hosting: https://uz-gabt-webapp.web.app/

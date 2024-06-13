@@ -1,7 +1,9 @@
+import { Intro } from "@/src/components/intro";
+
 export default function Home() {
   return (
     <main>
-      <p>uz-gabt-webapp !</p>
+      <Intro />
     </main>
   );
 }

@@ -7,7 +7,8 @@ export default function Home() {
   const t = useTranslations("Index");
   return (
     <main>
-      <p>uz-gabt-webapp {t('title')}</p>
+      <p>{t('title')}</p>
+      <p>{t('description')}</p>
     </main>
   );
 }

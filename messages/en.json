@@ -1,6 +1,8 @@
 {
   "Index": {
     "title": "Home",
-    "description": "This is the home page. new 1"
+    "description": "This is the home page. new 1",
+    "welcome": "WELCOME",
+    "welcome-description": "to the State Academic Bolshoi Theatre of Uzbekistan named after Alisher Navoi"
   }
 }

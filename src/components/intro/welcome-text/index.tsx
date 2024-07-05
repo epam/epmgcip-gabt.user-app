@@ -7,13 +7,13 @@ const bonnaNova = Bona_Nova({ subsets: ["latin"], weight: "400" });
 export const WelocomeText = () => {
   return (
     <Box className="flex justify-center">
-      <Section>
+      <Section className="w-full flex flex-col justify-center items-center">
         <Heading
-          className={`${bonnaNova.className} mb-1.5 text-8xl text-center`}
+          className={`${bonnaNova.className} mb-1.5 lg:text-8xl md:text-5xl sm:text-5xl text-center`}
         >
           WELCOME
         </Heading>
-        <Text className="block text-3xl text-center max-w-3xl">
+        <Text className="block w-2/3 lg:text-3xl md:text-2xl sm:text-2xl text-center">
           to the State Academic Bolshoi Theatre of Uzbekistan named after
           Alisher Navoi
         </Text>

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Jost } from "next/font/google";
 import "@radix-ui/themes/styles.css";
-import "./globals.css";
+import "./[locale]/globals.css";
 import { Theme } from "@radix-ui/themes";
-import { Navbar } from "../components/navbar";
 
 const inter = Jost({ subsets: ["latin"] });
 
@@ -19,11 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body className={inter.className}>
-        <Theme>
-          <Navbar />
-          {children}
-        </Theme>
+        <Theme>{children}</Theme>
       </body>
     </html>
   );

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Jost } from "next/font/google";
 import "./globals.css";
-import {NextIntlClientProvider, useMessages} from "next-intl";
+import { NextIntlClientProvider, useMessages } from "next-intl";
+import { Navbar } from "@/src/components/navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Jost({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,23 +13,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params: {locale}
+  params: { locale },
 }: Readonly<{
   children: React.ReactNode;
   params: {
     locale: string;
   };
 }>) {
-
   const messages = useMessages();
 
   return (
-    <html lang={locale}>
-      <body className={inter.className}>
+    <section lang={locale}>
+      <Navbar />
       <NextIntlClientProvider locale={locale} messages={messages}>
-      {children}
+        {children}
       </NextIntlClientProvider>
-      </body>
-    </html>
+    </section>
   );
 }

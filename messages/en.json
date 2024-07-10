@@ -1,8 +1,7 @@
 {
   "Index": {
-    "title": "Home",
-    "description": "This is the home page. new 1",
-    "welcome": "WELCOME",
-    "welcome-description": "to the State Academic Bolshoi Theatre of Uzbekistan named after Alisher Navoi"
+    "home-page-welcome": "WELCOME",
+    "home-page-welcome-description": "to the State Academic Bolshoi Theatre of Uzbekistan named after Alisher Navoi",
+    "button-buy-tickets": "BUY TICKETS"
   }
 }

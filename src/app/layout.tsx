@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Jost } from "next/font/google";
+import { Jost } from "next/font/google";
 import "@radix-ui/themes/styles.css";
 import "./[locale]/globals.css";
 import { Theme } from "@radix-ui/themes";
 
-const inter = Jost({ subsets: ["latin"] });
+const jost = Jost({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +21,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={inter.className}>
+      <body className={jost.className}>
         <Theme>{children}</Theme>
       </body>
     </html>

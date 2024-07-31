@@ -16,6 +16,7 @@ const config: Config = {
     },
     colors: {
       "dark-red": "#A80403",
+      "footer-bg": " #160807",
     },
   },
   plugins: [],

@@ -7,15 +7,16 @@ const bonnaNova = Bona_Nova({ subsets: ["latin"], weight: "400" });
 
 export const WelcomeText = () => {
   const t = useTranslations("Index");
+
   return (
     <Box className="flex justify-center">
       <Section className="w-full flex flex-col justify-center items-center">
         <Heading
-          className={`${bonnaNova.className} mb-1.5 lg:text-8xl md:text-5xl sm:text-5xl text-center`}
+          className={`${bonnaNova.className} mb-1.5 lg:text-8xl md:text-5xl sm:text-5xl text-center  `}
         >
           {t("home-page-welcome")}
         </Heading>
-        <Text className="block w-2/3 lg:text-3xl md:text-2xl sm:text-2xl text-center">
+        <Text className="block w-2/3 lg:text-3xl md:text-2xl  sm:text-2xl text-center text-green-700 !important ">
           {t("home-page-welcome-description")}
         </Text>
       </Section>

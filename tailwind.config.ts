@@ -17,6 +17,9 @@ const config: Config = {
     colors: {
       "dark-red": "#A80403",
       "footer-bg": " #160807",
+      "light-gold": "#F2D7A2",
+      "light-almond": "#F9EED7",
+      "gold-fusion": "#E7B24C",
     },
   },
   plugins: [],

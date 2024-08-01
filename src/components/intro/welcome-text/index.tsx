@@ -16,7 +16,7 @@ export const WelcomeText = () => {
         >
           {t("home-page-welcome")}
         </Heading>
-        <Text className="block w-2/3 lg:text-3xl md:text-2xl  sm:text-2xl text-center text-green-700 !important ">
+        <Text className="block w-2/3 lg:text-3xl md:text-2xl  sm:text-2xl text-center  ">
           {t("home-page-welcome-description")}
         </Text>
       </Section>

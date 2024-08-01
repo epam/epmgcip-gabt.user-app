@@ -4,27 +4,25 @@ import {
 	Map as GoogleMap,
 	Marker
 } from '@vis.gl/react-google-maps'
-// import CustomMarkerIcon from '@/public/contact-info/Custom-marker.svg'
+import { GoogleApiKey } from '@/src/constants/utils'
 
 export const Map = () => {
-	// const customMarkerIcon = {
-	// 	url: '/public/contact-info/Custom-marker.svg',
-	// 	size: 10,
-	// 	scaledSize: 15
-	// }
-	if (process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY)
+	const mapCoordinates = {
+		lat: 41.3093479554046,
+		lng: 69.27150505941223
+	}
+	if (GoogleApiKey)
 		return (
-			<APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
+			<APIProvider apiKey={GoogleApiKey}>
 				<GoogleMap
 					style={{ width: '100%', height: '100%' }}
-					defaultCenter={{ lat: 41.3093479554046, lng: 69.27150505941223 }}
+					defaultCenter={{ lat: mapCoordinates.lat, lng: mapCoordinates.lng }}
 					defaultZoom={17}
 					gestureHandling={'greedy'}
 					disableDefaultUI={true}
 				>
 					<Marker
 						position={{ lat: 41.3093479554046, lng: 69.27150505941223 }}
-						// icon={'/public/contact-info/Custom-marker.svg'}
 					/>
 				</GoogleMap>
 			</APIProvider>

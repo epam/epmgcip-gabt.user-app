@@ -1,7 +1,7 @@
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { localeLiterals } from "../../../constants/local-literals";
 
 type Locale = "en" | "ru";
 
@@ -13,7 +13,7 @@ const LocaleSwitcher = () => {
 
   useEffect(() => {
     setIsMounted(true);
-    const locale = pathname.split('/')[1] as Locale;
+    const locale = pathname.split("/")[1] as Locale;
     if (locale === "en" || locale === "ru") {
       setCurrentLocale(locale);
     }
@@ -30,7 +30,7 @@ const LocaleSwitcher = () => {
   if (!isMounted) return null;
 
   const getLanguageName = (locale: Locale): string => {
-    return locale === "en" ? "Eng" : "Рус";
+    return localeLiterals.languages[locale];
   };
 
   return (
@@ -44,12 +44,12 @@ const LocaleSwitcher = () => {
       <DropdownMenu.Content>
         {currentLocale !== "en" && (
           <DropdownMenu.Item onSelect={() => switchLocale("en")}>
-            English
+            {localeLiterals.dropdownItems.en}
           </DropdownMenu.Item>
         )}
         {currentLocale !== "ru" && (
           <DropdownMenu.Item onSelect={() => switchLocale("ru")}>
-            Русский
+            {localeLiterals.dropdownItems.ru}
           </DropdownMenu.Item>
         )}
       </DropdownMenu.Content>

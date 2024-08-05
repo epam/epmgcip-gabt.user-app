@@ -14,8 +14,9 @@ import Link from "next/link";
 import facebook from "../../../public/facebook.png";
 import teleg from "../../../public/telegram.png";
 import insta from "../../../public/insta.png";
+import { footerLiterals } from "../../constants/footer-literals";
 
-const Footer: React.FC = () => {
+const currentFooterSection: React.FC = () => {
   const [visibleBox, setVisibleBox] = useState<string | null>(null);
 
   const handleToggle = (box: string) => () => {
@@ -37,35 +38,34 @@ const Footer: React.FC = () => {
             className="text-lg text-center  mt-4"
             style={{ color: "white" }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore
+            {footerLiterals.description}
           </Text>
           <Box className="w-full mt-4 flex gap-4 justify-center">
-            <Link href="https://facebook.com" target="_blank">
+            <Link href={footerLiterals.facebookUrl} target="_blank">
               <Image src={facebook} alt="Facebook" width={24} height={24} />
             </Link>
-            <Link href="https://telegram.org" target="_blank">
+            <Link href={footerLiterals.telegramUrl} target="_blank">
               <Image src={teleg} alt="Telegram" width={24} height={24} />
             </Link>
-            <Link href="https://instagram.com" target="_blank">
+            <Link href={footerLiterals.instagramUrl} target="_blank">
               <Image src={insta} alt="Instagram" width={24} height={24} />
             </Link>
           </Box>
         </Box>
         <CollapsibleBox
-          title="LOREM IPSUM"
+          title={footerLiterals.collapsibleTitles[0]}
           items={BOX1_ITEMS}
           isVisible={visibleBox === "box1"}
           onToggle={handleToggle("box1")}
         />
         <CollapsibleBox
-          title="LOREM IPSUM"
+          title={footerLiterals.collapsibleTitles[1]}
           items={BOX2_ITEMS}
           isVisible={visibleBox === "box2"}
           onToggle={handleToggle("box2")}
         />
         <CollapsibleBox
-          title="LOREM IPSUM"
+          title={footerLiterals.collapsibleTitles[2]}
           items={BOX3_ITEMS}
           isVisible={visibleBox === "box3"}
           onToggle={handleToggle("box3")}
@@ -74,10 +74,10 @@ const Footer: React.FC = () => {
       <Box className="border-t border-gray-800 text-white">
         <Section className="flex justify-center">
           <Text className="text-sm" style={{ color: "white" }}>
-            © 2024 GABT named after A.Navoiy. All rights reserved. Designed by{" "}
+            {footerLiterals.copyright}
             <Link href="https://www.epam.com" className="hover:text-dark-red">
-              <Text className="text-sm" style={{ color: "white" }}>
-                Epam
+              <Text className="text-sm ml-1" style={{ color: "white" }}>
+                {footerLiterals.epamText}
               </Text>
             </Link>
           </Text>
@@ -87,4 +87,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default currentFooterSection;

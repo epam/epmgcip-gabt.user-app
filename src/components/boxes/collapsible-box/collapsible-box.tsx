@@ -3,14 +3,14 @@ import { Box, Heading, Text } from "@radix-ui/themes";
 import { FaChevronDown } from "react-icons/fa";
 import Link from "next/link";
 
-interface CollapsibleBoxProps {
+interface ICollapsibleBoxProps {
   title: string;
   items: { href: string; text: string }[];
   isVisible: boolean;
   onToggle: () => void;
 }
 
-const CollapsibleBox: React.FC<CollapsibleBoxProps> = ({
+const CollapsibleBox: React.FC<ICollapsibleBoxProps> = ({
   title,
   items,
   isVisible,

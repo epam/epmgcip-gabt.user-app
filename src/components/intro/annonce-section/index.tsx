@@ -19,9 +19,9 @@ export const AnnonceSection = () => {
         />
       </Section>
       <Section className="flex flex-row justify-center">
-        {/* <Image className="px-8 " src={annonceImage1} alt="annonce-1" />
+        <Image className="px-8 " src={annonceImage1} alt="annonce-1" />
         <Image className="px-8" src={annonceImage2} alt="annonce-2" />
-        <Image className="px-8" src={annonceImage3} alt="annonce-3" /> */}
+        <Image className="px-8" src={annonceImage3} alt="annonce-3" />
       </Section>
     </Box>
   );

@@ -25,7 +25,6 @@ const QuickLinks: React.FC = () => {
           <Section className="w-full h-full flex justify-center items-center border">
             <Link href="/history" passHref>
               <Text
-                as="a"
                 className={`${bonnaNova.className} text-4xl font-semibold transition-colors duration-300`}
               >
                 History
@@ -46,7 +45,6 @@ const QuickLinks: React.FC = () => {
           <Section className="w-full h-full flex justify-center items-center border">
             <Link href="/our-team" passHref>
               <Text
-                as="a"
                 className={`${bonnaNova.className} text-4xl font-semibold transition-colors duration-300`}
               >
                 Our Team
@@ -65,7 +63,6 @@ const QuickLinks: React.FC = () => {
           <Section className="w-full h-full flex justify-center items-center border">
             <Link href="/dress-code" passHref>
               <Text
-                as="a"
                 className={`${bonnaNova.className} text-4xl font-semibold transition-colors duration-300`}
               >
                 Dress Code

@@ -16,14 +16,12 @@ export const Map = () => {
 			<APIProvider apiKey={GoogleApiKey}>
 				<GoogleMap
 					style={{ width: '100%', height: '100%' }}
-					defaultCenter={{ lat: mapCoordinates.lat, lng: mapCoordinates.lng }}
+					defaultCenter={mapCoordinates}
 					defaultZoom={17}
 					gestureHandling={'greedy'}
 					disableDefaultUI={true}
 				>
-					<Marker
-						position={{ lat: 41.3093479554046, lng: 69.27150505941223 }}
-					/>
+					<Marker position={mapCoordinates} />
 				</GoogleMap>
 			</APIProvider>
 		)

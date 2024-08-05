@@ -13,7 +13,7 @@ export const ContactsInfo = () => {
 	const t = useTranslations('Index')
 
 	return (
-		<Box className='z-[100] mt-20'>
+		<Box>
 			<Flex className='flex-col md:flex-row'>
 				<ContactInfo />
 

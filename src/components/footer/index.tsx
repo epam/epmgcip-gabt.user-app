@@ -16,7 +16,7 @@ import teleg from "../../../public/telegram.png";
 import insta from "../../../public/insta.png";
 import { footerLiterals } from "../../constants/footer-literals";
 
-const currentFooterSection: React.FC = () => {
+const CurrentFooterSection: React.FC = () => {
   const [visibleBox, setVisibleBox] = useState<string | null>(null);
 
   const handleToggle = (box: string) => () => {
@@ -87,4 +87,4 @@ const currentFooterSection: React.FC = () => {
   );
 };
 
-export default currentFooterSection;
+export default CurrentFooterSection;

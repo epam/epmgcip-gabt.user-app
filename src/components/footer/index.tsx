@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { Box, Section, Text } from "@radix-ui/themes";
 import Image from "next/image";
@@ -11,10 +10,11 @@ import {
 } from "../../constants/footer-items-mock";
 import footerLogo from "../../../public/footer-logo.png";
 import Link from "next/link";
-import facebook from "../../../public/facebook.png";
-import teleg from "../../../public/telegram.png";
-import insta from "../../../public/insta.png";
+import facebook from "../../../public/facebook.svg";
+import teleg from "../../../public/telegram.svg";
+import insta from "../../../public/insta.svg";
 import { footerLiterals } from "../../constants/footer-literals";
+import EpamLogo from "../../../public/epam-logo.svg";
 
 const CurrentFooterSection: React.FC = () => {
   const [visibleBox, setVisibleBox] = useState<string | null>(null);
@@ -24,8 +24,8 @@ const CurrentFooterSection: React.FC = () => {
   };
 
   return (
-    <Box className="bg-footer-bg text-white py-8">
-      <Section className="container mx-auto px-4 py-0 flex flex-col md:flex-row md:justify-between">
+    <Box className="bg-footer-bg text-white pt-8">
+      <Section className="container mx-auto px-0 py-0 flex flex-col md:flex-row md:justify-between md:px-4 ">
         <Box className="flex-1 mb-4 text-white flex flex-col items-center ">
           <Image
             src={footerLogo}
@@ -41,15 +41,41 @@ const CurrentFooterSection: React.FC = () => {
             {footerLiterals.description}
           </Text>
           <Box className="w-full mt-4 flex gap-4 justify-center">
-            <Link href={footerLiterals.facebookUrl} target="_blank">
-              <Image src={facebook} alt="Facebook" width={24} height={24} />
-            </Link>
-            <Link href={footerLiterals.telegramUrl} target="_blank">
-              <Image src={teleg} alt="Telegram" width={24} height={24} />
-            </Link>
-            <Link href={footerLiterals.instagramUrl} target="_blank">
-              <Image src={insta} alt="Instagram" width={24} height={24} />
-            </Link>
+            <div className="w-full mt-4 flex gap-4 justify-center">
+              <Link href={footerLiterals.instagramUrl} target="_blank">
+                <div className="bg-red-500 rounded-full border border-white hover:border-golden-yellow py-2 px-3 hover:bg-golden-yellow group">
+                  <Image
+                    src={facebook}
+                    alt="Instagram"
+                    width={7}
+                    height={6}
+                    className="group-hover:filter group-hover:invert"
+                  />
+                </div>
+              </Link>
+              <Link href={footerLiterals.instagramUrl} target="_blank">
+                <div className="bg-red-500 rounded-full border border-white hover:border-golden-yellow p-2 hover:bg-golden-yellow group">
+                  <Image
+                    src={teleg}
+                    alt="Instagram"
+                    width={16}
+                    height={16}
+                    className="group-hover:filter group-hover:invert"
+                  />
+                </div>
+              </Link>
+              <Link href={footerLiterals.instagramUrl} target="_blank">
+                <div className="bg-red-500 rounded-full border border-white hover:border-golden-yellow p-2 hover:bg-golden-yellow group">
+                  <Image
+                    src={insta}
+                    alt="Instagram"
+                    width={16}
+                    height={16}
+                    className="group-hover:filter group-hover:invert"
+                  />
+                </div>
+              </Link>
+            </div>
           </Box>
         </Box>
         <CollapsibleBox
@@ -72,13 +98,15 @@ const CurrentFooterSection: React.FC = () => {
         />
       </Section>
       <Box className="border-t border-gray-800 text-white">
-        <Section className="flex justify-center">
-          <Text className="text-sm" style={{ color: "white" }}>
+        <Section className="flex justify-center py-4">
+          <Text
+            className="text-sm flex items-center"
+            style={{ color: "white" }}
+          >
             {footerLiterals.copyright}
-            <Link href="https://www.epam.com" className="hover:text-dark-red">
-              <Text className="text-sm ml-1" style={{ color: "white" }}>
-                {footerLiterals.epamText}
-              </Text>
+            <Link href="https://www.epam.com">
+              <Image src={EpamLogo} alt="EPAM" className="ml-2 mt-1 
+              " />
             </Link>
           </Text>
         </Section>

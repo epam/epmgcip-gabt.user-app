@@ -1,7 +1,16 @@
 {
-  "Index": {
-    "home-page-welcome": "WELCOME",
-    "home-page-welcome-description": "to the State Academic Bolshoi Theatre of Uzbekistan named after Alisher Navoi",
-    "button-buy-tickets": "BUY TICKETS"
-  }
+	"Index": {
+		"home-page-welcome": "WELCOME",
+		"home-page-welcome-description": "to the State Academic Bolshoi Theatre of Uzbekistan named after Alisher Navoi",
+		"button-buy-tickets": "BUY TICKETS",
+		"next-events": "Next events",
+		"ALL": "ALL",
+		"OPERA": "OPERA",
+		"BALLET": "BALLET",
+		"CHILDREN'S": "CHILDREN'S",
+		"NUSICAL": "MUSICAL",
+		"CONCERTS": "CONCERTS",
+		"TOURS": "TOURS",
+		"see-all-events": "see all events"
+	}
 }

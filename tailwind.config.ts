@@ -23,6 +23,7 @@ const config: Config = {
       "gold-fusion": "#E7B24C",
       "golden-yellow": "#E7B24C",
     },
+
   },
   plugins: [],
 };

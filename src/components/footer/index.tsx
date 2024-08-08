@@ -4,17 +4,17 @@ import { Box, Section, Text } from "@radix-ui/themes";
 import Image from "next/image";
 import CollapsibleBox from "../boxes/collapsible-box/collapsible-box";
 import {
-  BOX1_ITEMS,
-  BOX2_ITEMS,
-  BOX3_ITEMS,
-} from "../../constants/footer-items-mock";
-import footerLogo from "../../../public/footer-logo.png";
+  FOOTER_SECTION_ONE,
+  FOOTER_SECTION_TWO,
+  FOOTER_SECTION_THREE,
+} from "@/src/constants/footer-items-mock";
+import footerLogo from "@/public/footer-logo.png";
 import Link from "next/link";
-import facebook from "../../../public/facebook.svg";
-import teleg from "../../../public/telegram.svg";
-import insta from "../../../public/insta.svg";
-import { footerLiterals } from "../../constants/footer-literals";
-import EpamLogo from "../../../public/epam-logo.svg";
+import facebook from "@/public/facebook.svg";
+import teleg from "@/public/telegram.svg";
+import insta from "@/public/insta.svg";
+import { footerLiterals } from "@/src/constants/footer-literals";
+import EpamLogo from "@/public/epam-logo.svg";
 
 const CurrentFooterSection: React.FC = () => {
   const [visibleBox, setVisibleBox] = useState<string | null>(null);
@@ -42,22 +42,22 @@ const CurrentFooterSection: React.FC = () => {
           </Text>
           <Box className="w-full mt-4 flex gap-4 justify-center">
             <div className="w-full mt-4 flex gap-4 justify-center">
-              <Link href={footerLiterals.instagramUrl} target="_blank">
+              <Link href={footerLiterals.facebookUrl} target="_blank">
                 <div className="bg-red-500 rounded-full border border-white hover:border-golden-yellow py-2 px-3 hover:bg-golden-yellow group">
                   <Image
                     src={facebook}
-                    alt="Instagram"
+                    alt="Facebook"
                     width={7}
                     height={6}
                     className="group-hover:filter group-hover:invert"
                   />
                 </div>
               </Link>
-              <Link href={footerLiterals.instagramUrl} target="_blank">
+              <Link href={footerLiterals.telegramUrl} target="_blank">
                 <div className="bg-red-500 rounded-full border border-white hover:border-golden-yellow p-2 hover:bg-golden-yellow group">
                   <Image
                     src={teleg}
-                    alt="Instagram"
+                    alt="Telegram"
                     width={16}
                     height={16}
                     className="group-hover:filter group-hover:invert"
@@ -80,19 +80,19 @@ const CurrentFooterSection: React.FC = () => {
         </Box>
         <CollapsibleBox
           title={footerLiterals.collapsibleTitles[0]}
-          items={BOX1_ITEMS}
+          items={FOOTER_SECTION_ONE}
           isVisible={visibleBox === "box1"}
           onToggle={handleToggle("box1")}
         />
         <CollapsibleBox
           title={footerLiterals.collapsibleTitles[1]}
-          items={BOX2_ITEMS}
+          items={FOOTER_SECTION_TWO}
           isVisible={visibleBox === "box2"}
           onToggle={handleToggle("box2")}
         />
         <CollapsibleBox
           title={footerLiterals.collapsibleTitles[2]}
-          items={BOX3_ITEMS}
+          items={FOOTER_SECTION_THREE}
           isVisible={visibleBox === "box3"}
           onToggle={handleToggle("box3")}
         />
@@ -105,8 +105,7 @@ const CurrentFooterSection: React.FC = () => {
           >
             {footerLiterals.copyright}
             <Link href="https://www.epam.com">
-              <Image src={EpamLogo} alt="EPAM" className="ml-2 mt-1 
-              " />
+              <Image src={EpamLogo} alt="EPAM" className="ml-2 mt-1" />
             </Link>
           </Text>
         </Section>

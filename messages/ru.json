@@ -2,6 +2,17 @@
   "Index": {
     "home-page-welcome": "[ru] WELCOME",
     "home-page-welcome-description": "[ru] to the State Academic Bolshoi Theatre of Uzbekistan named after Alisher Navoi",
-    "button-buy-tickets": "[ru] BUY TICKETS"
+    "button-buy-tickets": "[ru] BUY TICKETS",
+    "ContactInfo": {
+      "contact-info": "[ru] CONTACT INFO",
+      "ticket-office": "[ru] Ticket office:",
+      "administrator": "[ru] Administrator:",
+      "deputy-director": "[ru] Deputy Director for the audience:",
+      "phone-fax": "[ru] Phone / fax:",
+      "e-mail": "[ru] E-mail:",
+      "address": "[ru] Zip code 100029. 28, Zarafshon str., Tashkent, Uzbekistan",
+      "where-to-find-us": "[ru] where to find us",
+      "more-about-us": "[ru] more about us"
+    }
   }
 }

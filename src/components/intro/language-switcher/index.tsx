@@ -1,16 +1,15 @@
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { localeLiterals } from "../../../constants/local-literals";
-// import { FaChevronDown } from "react-icons/fa";
-
-type Locale = "en" | "ru" | "uz";
+import { localeLiterals } from "@/src/constants/local-literals";
+import arrowIcon from "@/public/arrow.svg";
+import { Locale } from "@/src/constants/locales";
 
 const LocaleSwitcher = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
-  const [currentLocale, setCurrentLocale] = useState<Locale>("uz");
+  const [currentLocale, setCurrentLocale] = useState<Locale>(Locale.UZ);
 
   useEffect(() => {
     setIsMounted(true);
@@ -19,10 +18,10 @@ const LocaleSwitcher = () => {
       setCurrentLocale(savedLocale);
     } else {
       const locale = pathname.split("/")[1] as Locale;
-      if (locale === "en" || locale === "ru" || locale === "uz") {
+      if (Object.values(Locale).includes(locale)) {
         setCurrentLocale(locale);
       } else {
-        setCurrentLocale("uz");
+        setCurrentLocale(Locale.UZ);
       }
     }
   }, [pathname]);
@@ -44,70 +43,73 @@ const LocaleSwitcher = () => {
 
   const buttonStyle = (locale: Locale) => ({
     textDecoration: currentLocale === locale ? "none" : "none",
-    border: "none", 
-    background: "none", 
-    cursor: "pointer", 
-    padding: "8px", 
+    border: "none",
+    background: "none",
+    cursor: "pointer",
+    padding: "8px",
   });
 
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <button className="flex items-center gap-2" style={buttonStyle(currentLocale)}>
+        <button
+          className="flex items-center gap-2"
+          style={buttonStyle(currentLocale)}
+        >
           {getLanguageName(currentLocale)}{" "}
-          {/* <FaChevronDown style={{ fontSize: "12px" }} /> */}
+          <img src={arrowIcon.src} style={{ width: "12px", height: "10px" }} />
         </button>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Content
         style={{
           marginTop: "10px",
-          marginRight: "10px", 
-          borderRadius: "4px", 
-          border: "1px solid #ddd", 
+          marginRight: "10px",
+          borderRadius: "4px",
+          border: "1px solid #ddd",
           padding: "20px",
         }}
       >
-        {currentLocale !== "uz" && (
+        {currentLocale !== Locale.UZ && (
           <DropdownMenu.Item
-            onSelect={() => switchLocale("uz")}
+            onSelect={() => switchLocale(Locale.UZ)}
             style={{
-              ...buttonStyle("uz"),
-              border: "none", 
-              background: "none", 
-              outline: "none", 
-              padding: "8px", 
-            }}
-          >
-            {localeLiterals.dropdownItems.uz}
-          </DropdownMenu.Item>
-        )}
-        {currentLocale !== "en" && (
-          <DropdownMenu.Item
-            onSelect={() => switchLocale("en")}
-            style={{
-              ...buttonStyle("en"),
-              border: "none", 
-              background: "none", 
-              outline: "none", 
-              padding: "8px", 
-            }}
-          >
-            {localeLiterals.dropdownItems.en}
-          </DropdownMenu.Item>
-        )}
-        {currentLocale !== "ru" && (
-          <DropdownMenu.Item
-            onSelect={() => switchLocale("ru")}
-            style={{
-              ...buttonStyle("ru"),
+              ...buttonStyle(Locale.UZ),
               border: "none",
-              background: "none", 
-              outline: "none", 
-              padding: "8px", 
+              background: "none",
+              outline: "none",
+              padding: "8px",
             }}
           >
-            {localeLiterals.dropdownItems.ru}
+            {localeLiterals.dropdownItems[Locale.UZ]}
+          </DropdownMenu.Item>
+        )}
+        {currentLocale !== Locale.EN && (
+          <DropdownMenu.Item
+            onSelect={() => switchLocale(Locale.EN)}
+            style={{
+              ...buttonStyle(Locale.EN),
+              border: "none",
+              background: "none",
+              outline: "none",
+              padding: "8px",
+            }}
+          >
+            {localeLiterals.dropdownItems[Locale.EN]}
+          </DropdownMenu.Item>
+        )}
+        {currentLocale !== Locale.RU && (
+          <DropdownMenu.Item
+            onSelect={() => switchLocale(Locale.RU)}
+            style={{
+              ...buttonStyle(Locale.RU),
+              border: "none",
+              background: "none",
+              outline: "none",
+              padding: "8px",
+            }}
+          >
+            {localeLiterals.dropdownItems[Locale.RU]}
           </DropdownMenu.Item>
         )}
       </DropdownMenu.Content>

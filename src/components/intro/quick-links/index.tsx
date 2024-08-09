@@ -15,7 +15,7 @@ const QuickLinks: React.FC = () => {
         {QUICK_LINKS.map((link, index) => (
           <Box
             key={index}
-            className={`w-full sm:w-[420px] sm:h-[170px] p-4 bg-white shadow-md rounded-lg border border-gray-300 ${link.backgroundColor}`}
+            className={`w-full sm:w-[420px] sm:h-[170px] p-4 bg-white shadow-md rounded-lg border border-gray-300  ${link.backgroundColor}`}
             style={{
               backgroundImage: `url(${link.backgroundImage})`,
               backgroundSize: link.backgroundSize,

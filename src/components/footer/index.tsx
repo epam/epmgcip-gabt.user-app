@@ -100,11 +100,14 @@ const CurrentFooterSection: React.FC = () => {
       <Box className="border-t border-gray-800 text-white">
         <Section className="flex justify-center py-4">
           <Text
-            className="text-sm flex items-center"
+            className="text-sm flex flex-col  items-center text-center  md:flex-row"
             style={{ color: "white" }}
           >
             {footerLiterals.copyright}
-            <Link href="https://www.epam.com">
+            <Link href="https://www.epam.com" className="flex ml-1">
+              <Text className="text-sm flex items-center">
+                {footerLiterals.epamText}
+              </Text>
               <Image src={EpamLogo} alt="EPAM" className="ml-2 mt-1" />
             </Link>
           </Text>

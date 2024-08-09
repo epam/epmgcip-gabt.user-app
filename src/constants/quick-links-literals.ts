@@ -1,5 +1,4 @@
 import { Routes } from "@/src/constants/routes";
-
 export const QUICK_LINKS = [
   {
     href: Routes.History,

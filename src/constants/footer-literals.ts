@@ -6,8 +6,7 @@ export const footerLiterals = {
   telegramUrl: "https://telegram.org",
   instagramUrl: "https://instagram.com",
   collapsibleTitles: ["LOREM IPSUM", "LOREM IPSUM", "LOREM IPSUM"],
-  copyright:
-    "© 2024 GABT named after A.Navoiy. All rights reserved. Designed by",
+  copyright: "© 2024 GABT named after A.Navoiy. All rights reserved.",
   epamUrl: "https://www.epam.com",
-  epamText: "Epam",
+  epamText: "Designed by",
 };

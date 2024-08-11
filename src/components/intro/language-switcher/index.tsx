@@ -1,15 +1,20 @@
 import { useRouter, usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { FC, RefObject, useEffect, useState } from "react";
 import { localeLiterals } from "@/src/constants/local-literals";
 import arrowIcon from "@/public/arrow.svg";
 import { Locale } from "@/src/constants/locales";
 
-const LocaleSwitcher = () => {
+interface LocaleSwitcherProps {
+  isMobile?: boolean;
+  localeRef?: RefObject<HTMLDivElement>;
+}
+
+const LocaleSwitcher: FC<LocaleSwitcherProps> = ({ isMobile, localeRef }) => {
   const router = useRouter();
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
   const [currentLocale, setCurrentLocale] = useState<Locale>(Locale.UZ);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -35,85 +40,69 @@ const LocaleSwitcher = () => {
     }
   };
 
-  if (!isMounted) return null;
-
-  const getLanguageName = (locale: Locale): string => {
-    return localeLiterals.languages[locale];
+  const toggleDropdownVisibility = () => {
+    setIsDropdownVisible((prev) => !prev);
   };
 
-  const buttonStyle = (locale: Locale) => ({
-    textDecoration: currentLocale === locale ? "none" : "none",
-    border: "none",
-    background: "none",
-    cursor: "pointer",
-    padding: "8px",
-  });
+  if (!isMounted) return null;
+
+  const buttonClass = (locale: Locale) =>
+    `cursor-pointer p-2 ${currentLocale === locale ? "font-bold" : ""}`;
 
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild>
-        <button
-          className="flex items-center gap-2"
-          style={buttonStyle(currentLocale)}
-        >
-          {getLanguageName(currentLocale)}{" "}
-          <img src={arrowIcon.src} style={{ width: "12px", height: "10px" }} />
-        </button>
-      </DropdownMenu.Trigger>
+    <div ref={localeRef}>
+      {isMobile ? (
+        <div>
+          <div className="flex flex  justify-between px-10 p-4 border-b border-gray-300">
+            {Object.values(Locale).map((locale) => (
+              <button
+                key={locale}
+                onClick={() => {
+                  switchLocale(locale);
+                }}
+                className={`block p-2 ${
+                  currentLocale === locale
+                    ? "font-bold text-dark-red underline"
+                    : ""
+                }`}
+              >
+                {localeLiterals.mobileMenuItems[locale]}
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="relative">
+          <button
+            onClick={toggleDropdownVisibility}
+            className={`flex items-center gap-2 ${buttonClass(currentLocale)}`}
+          >
+            {localeLiterals.languages[currentLocale]}
+            <img src={arrowIcon.src} className="w-3 h-2" />
+          </button>
 
-      <DropdownMenu.Content
-        style={{
-          marginTop: "10px",
-          marginRight: "10px",
-          borderRadius: "4px",
-          border: "1px solid #ddd",
-          padding: "20px",
-        }}
-      >
-        {currentLocale !== Locale.UZ && (
-          <DropdownMenu.Item
-            onSelect={() => switchLocale(Locale.UZ)}
-            style={{
-              ...buttonStyle(Locale.UZ),
-              border: "none",
-              background: "none",
-              outline: "none",
-              padding: "8px",
-            }}
-          >
-            {localeLiterals.dropdownItems[Locale.UZ]}
-          </DropdownMenu.Item>
-        )}
-        {currentLocale !== Locale.EN && (
-          <DropdownMenu.Item
-            onSelect={() => switchLocale(Locale.EN)}
-            style={{
-              ...buttonStyle(Locale.EN),
-              border: "none",
-              background: "none",
-              outline: "none",
-              padding: "8px",
-            }}
-          >
-            {localeLiterals.dropdownItems[Locale.EN]}
-          </DropdownMenu.Item>
-        )}
-        {currentLocale !== Locale.RU && (
-          <DropdownMenu.Item
-            onSelect={() => switchLocale(Locale.RU)}
-            style={{
-              ...buttonStyle(Locale.RU),
-              border: "none",
-              background: "none",
-              outline: "none",
-              padding: "8px",
-            }}
-          >
-            {localeLiterals.dropdownItems[Locale.RU]}
-          </DropdownMenu.Item>
-        )}
-      </DropdownMenu.Content>
-    </DropdownMenu.Root>
+          {isDropdownVisible && (
+            <div className="hidden absolute mt-2 right-0 rounded border border-gray-300 p-5 bg-white-text  md:block">
+              {Object.values(Locale).map(
+                (locale) =>
+                  currentLocale !== locale && (
+                    <button
+                      key={locale}
+                      onClick={() => {
+                        switchLocale(locale);
+                        toggleDropdownVisibility();
+                      }}
+                      className={`block outline-none ${buttonClass(locale)}`}
+                    >
+                      {localeLiterals.dropdownItems[locale]}
+                    </button>
+                  )
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 };
 

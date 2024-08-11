@@ -1,12 +1,17 @@
 export const localeLiterals = {
   languages: {
-    en: "Eng",
-    ru: "Рус",
+    en: "EN",
+    ru: "РУ",
     uz: "UZ",
   },
   dropdownItems: {
-    en: "Eng",
-    ru: "Рус",
+    en: "EN",
+    ru: "РУ",
     uz: "UZ",
+  },
+  mobileMenuItems: {
+    en: "English",
+    ru: "Russian",
+    uz: "Uzbek",
   },
 };

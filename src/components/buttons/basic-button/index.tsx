@@ -1,5 +1,6 @@
 import { Button } from "@radix-ui/themes";
 
+
 import type { Props } from "./types";
 
 export const BasicButton = ({ text, outBoxClassnames, classnames }: Props) => {

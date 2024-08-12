@@ -8,7 +8,7 @@ import {
   FOOTER_SECTION_TWO,
   FOOTER_SECTION_THREE,
 } from "@/src/constants/footer-items-mock";
-import footerLogo from "@/public/footer-logo.png";
+import footerLogo from "@/public/footerLogo.svg";
 import Link from "next/link";
 import facebook from "@/public/facebook.svg";
 import teleg from "@/public/telegram.svg";

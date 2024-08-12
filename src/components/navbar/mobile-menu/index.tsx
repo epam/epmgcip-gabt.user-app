@@ -12,6 +12,7 @@ const MobileNavMenu: FC<IMobileNavMenuProps> = ({
   openItems,
   toggleSubMenu,
   localeSwitcherVisible,
+  isMobile,
   containerClassName = "block px-4 mx-4 flex flex-col",
   itemClassName = "flex flex-col items-start px-4 py-8 text-lg",
   buttonClassName = "text-lg",
@@ -20,7 +21,7 @@ const MobileNavMenu: FC<IMobileNavMenuProps> = ({
   arrowIconClassName = "transition-transform duration-300",
 }) => {
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && isMobile) {
       document.body.classList.add("no-scroll");
     } else {
       document.body.classList.remove("no-scroll");
@@ -29,7 +30,8 @@ const MobileNavMenu: FC<IMobileNavMenuProps> = ({
     return () => {
       document.body.classList.remove("no-scroll");
     };
-  }, [isOpen]);
+  }, [isOpen, isMobile]);
+
   return (
     <div
       ref={menuRef}
@@ -37,7 +39,7 @@ const MobileNavMenu: FC<IMobileNavMenuProps> = ({
         isOpen ? "translate-x-0" : "translate-x-full"
       }`}
       style={{
-        maxHeight: "calc(100vh - 8rem)", 
+        maxHeight: "calc(100vh - 8rem)",
         overflowY: "auto",
       }}
     >

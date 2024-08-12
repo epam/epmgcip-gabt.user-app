@@ -8,6 +8,7 @@ import LocaleSwitcher from "../intro/language-switcher";
 import MobileNavMenu from "./mobile-menu";
 import DesktopNavItems from "./dektop-nav-items";
 import MenuButton from "../buttons/menu-buttn";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +19,7 @@ export const Navbar = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const localeRef = useRef<HTMLDivElement>(null);
 
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const toggleSubMenu = (index: number) =>
     setOpenItems((prev) => ({ ...prev, [index]: !prev[index] }));
@@ -75,7 +77,7 @@ export const Navbar = () => {
           <div className="w-1/3 flex justify-center">
             <Image src={logo} alt="logo" />
           </div>
-          <div className="w-1/3 flex justify-end md:justify-center">
+          <div className="w-1/3 flex justify-center md:justify-end">
             <div onClick={toggleLocaleSwitcher}>
               <LocaleSwitcher localeRef={localeRef} isMobile={false} />
             </div>
@@ -92,6 +94,7 @@ export const Navbar = () => {
           openItems={openItems}
           toggleSubMenu={toggleSubMenu}
           localeSwitcherVisible={isLocaleSwitcherVisible}
+          isMobile={isMobile}
         />
       </NavigationMenu.List>
     </NavigationMenu.Root>

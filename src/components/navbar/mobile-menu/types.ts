@@ -2,6 +2,7 @@ import { RefObject } from "react";
 
 export interface IMobileNavMenuProps {
   isOpen: boolean;
+  isMobile: boolean;
   menuRef: RefObject<HTMLDivElement>;
   openItems: Record<number, boolean>;
   toggleSubMenu: (index: number) => void;

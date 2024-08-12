@@ -16,7 +16,7 @@ const LocaleSwitcher: FC<LocaleSwitcherProps> = ({ isMobile, localeRef }) => {
   const [currentLocale, setCurrentLocale] = useState<Locale>(Locale.UZ);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
-  const dropdownRef = useRef<HTMLDivElement>(null); // Create a ref for the dropdown
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsMounted(true);
@@ -106,7 +106,7 @@ const LocaleSwitcher: FC<LocaleSwitcherProps> = ({ isMobile, localeRef }) => {
 
           {isDropdownVisible && (
             <div
-              ref={dropdownRef} // Attach the ref to the dropdown
+              ref={dropdownRef}
               className="hidden absolute mt-2 right-0 rounded border border-gray-300 p-5 bg-white-text md:block"
             >
               {Object.values(Locale).map(

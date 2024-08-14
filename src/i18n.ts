@@ -3,9 +3,9 @@ import { getRequestConfig } from "next-intl/server";
 
 import { locales } from "./config";
 
-export default getRequestConfig(async ({ locale }) => {
+export default getRequestConfig(async ({ locale }: { locale: string }) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) {
+  if (!locales.includes(locale)) {
     notFound();
   }
 

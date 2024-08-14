@@ -1,7 +1,19 @@
 {
-  "extends": ["next/core-web-vitals", "eslint:recommended", "prettier"],
+  "extends": ["next/core-web-vitals", "eslint:recommended","plugin:@typescript-eslint/recommended", "prettier"],
   "plugins": ["react", "react-hooks", "prettier", "@typescript-eslint"],
   "rules": {
+    "@typescript-eslint/typedef": [
+      "warn",
+      {
+        "arrayDestructuring": true,
+        "arrowParameter": true,
+        "memberVariableDeclaration": true,
+        "objectDestructuring": true,
+        "parameter": true,
+        "propertyDeclaration": true,
+        "variableDeclaration": true
+      }
+    ],
     "@typescript-eslint/naming-convention": [
       "error",
       {

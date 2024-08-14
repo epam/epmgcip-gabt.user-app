@@ -17,10 +17,16 @@ const config: Config = {
       }
     },
     colors: {
-      'dark-red': '#A80403',
-      'creamy-yellow': 'rgba(241, 227, 189, 1)',
-      white: '#FFF'
-    }
+        "white-text": "#FEFEFE",
+        "dark-red": "#A80403",
+        "footer-bg": "#160807",
+        "light-gold": "#F7D7A2",
+        "light-almond": "#F9E7D7",
+        "gold-fusion": "#E7D24C",
+        "golden-yellow": "#E7B24C",
+        'creamy-yellow': 'rgba(241, 227, 189, 1)',
+        white: "#FFF",
+      },
   },
   plugins: []
 }

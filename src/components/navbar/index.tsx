@@ -5,6 +5,7 @@ import Image from "next/image";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import logo from "@/public/theatre-icon.svg";
 import { MENU_LIST } from "@/src/constants/nav-items-mock";
+import LocaleSwitcher from "../intro/language-switcher";
 
 export const Navbar = () => {
   return (
@@ -17,12 +18,16 @@ export const Navbar = () => {
                 key={href}
                 href={href}
                 text={text}
-                classname="px-4 text-nowrap text-lg hover:text-dark-red hover:underline"
+                classname="px-4 text-green-400   text-nowrap text-lg hover:text-dark-red hover:underline"
               />
             ))}
           </div>
           <div className="w-1/3 flex justify-center">
             <Image src={logo} alt="logo" />
+          </div>
+
+          <div className="w-1/3 flex justify-center">
+            <LocaleSwitcher />
           </div>
         </Flex>
       </NavigationMenu.List>

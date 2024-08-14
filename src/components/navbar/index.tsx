@@ -1,10 +1,12 @@
 "use client";
 import { Flex } from "@radix-ui/themes";
-import { NavItem } from "./navitem";
 import Image from "next/image";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+
 import logo from "@/public/theatre-icon.svg";
 import { MENU_LIST } from "@/src/constants/nav-items-mock";
+
+import { NavItem } from "./navitem";
 import LocaleSwitcher from "../intro/language-switcher";
 
 export const Navbar = () => {

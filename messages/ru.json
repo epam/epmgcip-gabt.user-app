@@ -1,6 +1,5 @@
 {
   "Index": {
-
     "home-page-welcome": "Добро пожаловать",
     "home-page-welcome-description": "в Государственный академический Большой театр Узбекистана имени Алишера Навои",
     "button-buy-tickets": "КУПИТЬ БИЛЕТЫ",
@@ -15,6 +14,5 @@
       "where-to-find-us": "[ru] where to find us",
       "more-about-us": "[ru] more about us"
     }
-
   }
 }

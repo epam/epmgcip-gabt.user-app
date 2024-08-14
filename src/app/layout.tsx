@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import "@radix-ui/themes/styles.css";

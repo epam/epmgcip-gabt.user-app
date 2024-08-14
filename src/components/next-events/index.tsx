@@ -31,29 +31,21 @@ export const NextEvents = () => {
               </Button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
-              <DropdownMenu.Item>Edit</DropdownMenu.Item>
-              <DropdownMenu.Item>Duplicate</DropdownMenu.Item>
-              <DropdownMenu.Separator />
-              <DropdownMenu.Item>Archive</DropdownMenu.Item>
-
-              <DropdownMenu.Sub>
-                <DropdownMenu.SubTrigger>More</DropdownMenu.SubTrigger>
-                <DropdownMenu.SubContent>
-                  <DropdownMenu.Item>Move to project…</DropdownMenu.Item>
-                  <DropdownMenu.Item>Move to folder…</DropdownMenu.Item>
-
-                  <DropdownMenu.Separator />
-                  <DropdownMenu.Item>Advanced options…</DropdownMenu.Item>
-                </DropdownMenu.SubContent>
-              </DropdownMenu.Sub>
-
-              <DropdownMenu.Separator />
-              <DropdownMenu.Item>Share</DropdownMenu.Item>
-              <DropdownMenu.Item>Add to favorites</DropdownMenu.Item>
-              <DropdownMenu.Separator />
-              <DropdownMenu.Item shortcut='⌘ ⌫' color='red'>
-                Delete
-              </DropdownMenu.Item>
+              {Object.values(EventCategory).map(key => (
+                <Button
+                  key={key}
+                  variant='outline'
+                  radius='none'
+                  className={`${
+                    key === filterOption
+                      ? ' bg-dark-red text-white'
+                      : 'text-black'
+                  } tracking-wider font-normal px-[17px] h-[39px] w-auto flex justify-center items-center hover:opacity-60 cursor-pointer bg-transparent  border border-solid shadow-none uppercase`}
+                  onClick={() => setFilterOption(key)}
+                >
+                  {key}
+                </Button>
+              ))}
             </DropdownMenu.Content>
           </DropdownMenu.Root>
         </div>

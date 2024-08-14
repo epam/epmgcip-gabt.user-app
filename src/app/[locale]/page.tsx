@@ -1,6 +1,7 @@
 'use client'
-import { Intro } from '@/src/components/intro'
 import { NextEvents } from '@/src/components/next-events'
+import { ContactsInfo } from '@/src/components/contactsInfo'
+import { Intro } from '@/src/components/intro'
 import { useTranslations } from 'use-intl'
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
     <main>
       <Intro />
       <NextEvents />
+      <ContactsInfo />
     </main>
   )
 }

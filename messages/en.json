@@ -11,6 +11,17 @@
     "NUSICAL": "MUSICAL",
     "CONCERTS": "CONCERTS",
     "TOURS": "TOURS",
-    "see-all-events": "see all events"
+    "see-all-events": "see all events",
+    "ContactInfo": {
+      "contact-info": "CONTACT INFO",
+      "ticket-office": "Ticket office:",
+      "administrator": "Administrator:",
+      "deputy-director": "Deputy Director for the audience:",
+      "phone-fax": "Phone / fax:",
+      "e-mail": "E-mail:",
+      "address": "Zip code 100029. 28, Zarafshon str., Tashkent, Uzbekistan",
+      "where-to-find-us": "where to find us",
+      "more-about-us": "more about us"
+    }
   }
 }

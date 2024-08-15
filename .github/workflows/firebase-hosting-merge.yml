@@ -10,7 +10,7 @@ jobs:
       FIREBASE_CLI_EXPERIMENTS: webframeworks
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Lint Code
-        run: npm run lint
+        run: env && npm run lint
 
       - name: Build Application
         env:

@@ -1,4 +1,4 @@
-enum EventCategory {
+export enum EventCategory {
   All = "ALL",
   Opera = "OPERA",
   Ballet = "BALLET",
@@ -8,7 +8,7 @@ enum EventCategory {
   Tours = "TOURS",
 }
 
-interface INextEvent {
+export interface INextEvent {
   type: EventCategory;
   img: string;
   title: string;
@@ -20,7 +20,7 @@ interface INextEvent {
 
 const now: Date = new Date();
 
-const padToStartNumber: number = 2;
+export const padToStartNumber: number = 2;
 
 const formattedTime: string = `${now.getHours().toString().padStart(padToStartNumber, "0")}:${now
   .getMinutes()

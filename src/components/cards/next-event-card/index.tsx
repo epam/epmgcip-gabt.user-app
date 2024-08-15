@@ -1,86 +1,95 @@
-import { Box, Button, Flex, Text } from '@radix-ui/themes'
-import { Props } from './types'
-import Image from 'next/image'
-import { title } from 'process'
-import Link from 'next/link'
+import { Box, Flex, Text } from "@radix-ui/themes";
+import Image from "next/image";
+import Link from "next/link";
 
-export const NextEventCard = ({
-	type,
-	title,
-	text,
-	link,
-	date,
-	img,
-	time
-}: Props) => {
-	function formatDateWithDayName(date: Date): string {
-		const daysOfWeek = [
-			'Sunday',
-			'Monday',
-			'Tuesday',
-			'Wednesday',
-			'Thursday',
-			'Friday',
-			'Saturday'
-		]
-		const dayName = daysOfWeek[date.getDay()]
+import { INextEvent, padToStartNumber } from "@/src/constants/next-events-mock";
 
-		const day = String(date.getDate()).padStart(2, '0')
-		const month = String(date.getMonth() + 1).padStart(2, '0')
-		const year = date.getFullYear()
+export const NextEventCard: ({
+  type,
+  title,
+  link,
+  date,
+  img,
+  time,
+}: INextEvent) => JSX.Element = ({
+  type,
+  title,
+  link,
+  date,
+  img,
+  time,
+}: INextEvent) => {
+  function formatDateWithDayName(date: Date): string {
+    const daysOfWeek: string[] = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    const dayName: string = daysOfWeek[date.getDay()];
 
-		return `${dayName}, ${day}.${month}.${year}`
-	}
+    const day: string = String(date.getDate()).padStart(padToStartNumber, "0");
+    const month: string = String(date.getMonth() + 1).padStart(
+      padToStartNumber,
+      "0"
+    );
+    const year: number = date.getFullYear();
 
-	return (
-		<Box className='max-w-[310px] w-full border border-solid border-black  bg-white'>
-			<Box className='w-full h-[228px]'>
-				<Image src={`${img}`} alt='image' height={228} width={310} />
-			</Box>
+    return `${dayName}, ${day}.${month}.${year}`;
+  }
 
-			<Box className='py-[17px] px-[20px]'>
-				<Text as='p' className='font-medium uppercase text-dark-red text-sm'>
-					{type}
-				</Text>
+  return (
+    <Box className="max-w-[310px] w-full border border-solid border-black  bg-white">
+      <Box className="w-full h-[228px]">
+        <Image src={`${img}`} alt="image" height={228} width={310} />
+      </Box>
 
-				<Text
-					as='p'
-					className='mt-2 font-medium text-xl h-20 line-clamp-3 text-ellipsis overflow-hidden ...'
-				>
-					{title}
-				</Text>
+      <Box className="py-[17px] px-[20px]">
+        <Text as="p" className="font-medium uppercase text-dark-red text-sm">
+          {type}
+        </Text>
 
-				<Flex className='mt-10 gap-[14px] items-center'>
-					<Image
-						src={'/next-event-card/calendar.svg'}
-						alt='calendar'
-						width={14}
-						height={16}
-					/>
+        <Text
+          as="p"
+          className="mt-2 font-medium text-xl h-20 line-clamp-3 text-ellipsis overflow-hidden ..."
+        >
+          {title}
+        </Text>
 
-					<Text className='text-sm text-black'>
-						{formatDateWithDayName(date)}
-					</Text>
-				</Flex>
+        <Flex className="mt-10 gap-[14px] items-center">
+          <Image
+            src={"/next-event-card/calendar.svg"}
+            alt="calendar"
+            width={14}
+            height={16}
+          />
 
-				<Flex className='mt-1 gap-[14px] items-center'>
-					<Image
-						src={'/next-event-card/clock.svg'}
-						alt='clock'
-						width={14}
-						height={16}
-					/>
+          <Text className="text-sm text-black">
+            {formatDateWithDayName(date)}
+          </Text>
+        </Flex>
 
-					<Text className='text-sm text-black'>{time} h</Text>
-				</Flex>
-			</Box>
+        <Flex className="mt-1 gap-[14px] items-center">
+          <Image
+            src={"/next-event-card/clock.svg"}
+            alt="clock"
+            width={14}
+            height={16}
+          />
 
-			<Link
-				href={link}
-				className='py-4 flex items-center justify-center text-[15px] tracking-wide	border-t border-solid border-black hover:opacity-60'
-			>
-				More Info
-			</Link>
-		</Box>
-	)
-}
+          <Text className="text-sm text-black">{time} h</Text>
+        </Flex>
+      </Box>
+
+      <Link
+        href={link}
+        className="py-4 flex items-center justify-center text-[15px] tracking-wide	border-t border-solid border-black hover:opacity-60"
+      >
+        More Info
+      </Link>
+    </Box>
+  );
+};

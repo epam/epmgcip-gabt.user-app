@@ -1,1 +1,1 @@
-export { NextEventCard } from './next-event-card'
+export { NextEventCard } from "./next-event-card";

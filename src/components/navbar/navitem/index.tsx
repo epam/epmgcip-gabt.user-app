@@ -1,10 +1,11 @@
 "use-client";
+
 import Link from "next/link";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 
-import type { Props } from "./types";
+import type { IProps } from "./types";
 
-export const NavItem = ({ text, href, active, classname }: Props) => {
+export const NavItem = ({ text, href, classname }: IProps) => {
   return (
     <NavigationMenu.Item className={classname}>
       <Link href={href}>{text}</Link>

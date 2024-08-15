@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --format stylish"
+    "lint": "next lint --format stylish",
+    "ts-check": "tsc",
+    "lint-ts": "npm run lint && npm run ts-check"
   },
   "dependencies": {
     "@radix-ui/react-navigation-menu": "1.1.4",

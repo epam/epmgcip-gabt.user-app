@@ -6,6 +6,7 @@
 .pnp.js
 .yarn/install-state.gz
 .vscode/
+.vscode/
 
 # testing
 /coverage
@@ -39,3 +40,5 @@ next-env.d.ts
 .env
 
 /.idea
+
+.firebase

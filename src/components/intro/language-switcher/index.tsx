@@ -1,6 +1,7 @@
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+
 import { localeLiterals } from "../../../constants/local-literals";
 
 type Locale = "en" | "ru";
@@ -27,7 +28,9 @@ const LocaleSwitcher = () => {
     }
   };
 
-  if (!isMounted) return null;
+  if (!isMounted) {
+    return null;
+  }
 
   const getLanguageName = (locale: Locale): string => {
     return localeLiterals.languages[locale];

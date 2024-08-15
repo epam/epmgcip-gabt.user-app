@@ -4,6 +4,7 @@ import React from "react";
 import { Box, Section, Text } from "@radix-ui/themes";
 import Link from "next/link";
 import { Bona_Nova } from "next/font/google";
+
 import { QUICK_LINKS } from "@/src/constants/quick-links-literals";
 
 const bonnaNova = Bona_Nova({ subsets: ["latin"], weight: "400" });

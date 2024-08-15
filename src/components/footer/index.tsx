@@ -1,20 +1,22 @@
 "use client";
 import React, { useState } from "react";
-import { Box, Section, Text } from "@radix-ui/themes";
 import Image from "next/image";
-import CollapsibleBox from "../boxes/collapsible-box/collapsible-box";
+import { Box, Section, Text } from "@radix-ui/themes";
+import Link from "next/link";
+
+import footerLogo from "@/public/footer-logo.png";
 import {
   FOOTER_SECTION_ONE,
-  FOOTER_SECTION_TWO,
   FOOTER_SECTION_THREE,
+  FOOTER_SECTION_TWO,
 } from "@/src/constants/footer-items-mock";
-import footerLogo from "@/public/footer-logo.png";
-import Link from "next/link";
 import facebook from "@/public/facebook.svg";
 import teleg from "@/public/telegram.svg";
 import insta from "@/public/insta.svg";
 import { footerLiterals } from "@/src/constants/footer-literals";
 import EpamLogo from "@/public/epam-logo.svg";
+
+import CollapsibleBox from "../boxes/collapsible-box/collapsible-box";
 
 const CurrentFooterSection: React.FC = () => {
   const [visibleBox, setVisibleBox] = useState<string | null>(null);

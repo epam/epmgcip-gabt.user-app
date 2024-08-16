@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import { MENU_LIST } from "@/src/constants/nav-items-mock";
 import { NavItem } from "../navitem";
 

@@ -1,15 +1,15 @@
-import { useRouter, usePathname } from "next/navigation";
 import { FC, RefObject, useEffect, useRef, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { localeLiterals } from "@/src/constants/local-literals";
 import arrowIcon from "@/public/arrow.svg";
 import { Locale } from "@/src/constants/locales";
 
-interface LocaleSwitcherProps {
+interface ILocaleSwitcherProps {
   isMobile?: boolean;
   localeRef?: RefObject<HTMLDivElement>;
 }
 
-const LocaleSwitcher: FC<LocaleSwitcherProps> = ({ isMobile, localeRef }) => {
+const LocaleSwitcher: FC<ILocaleSwitcherProps> = ({ isMobile, localeRef }) => {
   const router = useRouter();
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
@@ -47,10 +47,7 @@ const LocaleSwitcher: FC<LocaleSwitcherProps> = ({ isMobile, localeRef }) => {
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target as Node)
-    ) {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setIsDropdownVisible(false);
     }
   };
@@ -107,7 +104,7 @@ const LocaleSwitcher: FC<LocaleSwitcherProps> = ({ isMobile, localeRef }) => {
           {isDropdownVisible && (
             <div
               ref={dropdownRef}
-              className="absolute hidden  mt-2 right-0 rounded border border-gray-300 p-5 bg-white-text md:block"
+              className="absolute hidden mt-2 right-0 rounded border border-gray-300 p-5 bg-white-text md:block"
             >
               {Object.values(Locale).map(
                 (locale) =>

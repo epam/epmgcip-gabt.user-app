@@ -1,21 +1,22 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+
 import { Box, Section, Text } from "@radix-ui/themes";
+
+import footerLogo from "@/public/footerLogo.svg";
+import facebook from "@/public/facebook.svg";
+import teleg from "@/public/telegram.svg";
+import insta from "@/public/insta.svg";
+import EpamLogo from "@/public/epam-logo.svg";
 
 import {
   FOOTER_SECTION_ONE,
   FOOTER_SECTION_THREE,
   FOOTER_SECTION_TWO,
 } from "@/src/constants/footer-items-mock";
-
-import footerLogo from "@/public/footerLogo.svg";
-import Link from "next/link";
-import facebook from "@/public/facebook.svg";
-import teleg from "@/public/telegram.svg";
-import insta from "@/public/insta.svg";
 import { footerLiterals } from "@/src/constants/footer-literals";
-import EpamLogo from "@/public/epam-logo.svg";
 
 import CollapsibleBox from "../boxes/collapsible-box/collapsible-box";
 

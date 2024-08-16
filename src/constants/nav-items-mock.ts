@@ -3,7 +3,7 @@ interface ISubMenuItem {
   href: string;
 }
 
-interface IMenuItem {
+export interface IMenuItem {
   text: string;
   href: string;
   subMenu: ISubMenuItem[];

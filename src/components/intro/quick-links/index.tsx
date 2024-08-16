@@ -5,9 +5,9 @@ import { Box, Section, Text } from "@radix-ui/themes";
 import Link from "next/link";
 import { Bona_Nova } from "next/font/google";
 
-import { QUICK_LINKS, IQuickLink } from "@/src/constants/quick-links-literals";
+import { IQuickLink, QUICK_LINKS } from "@/src/constants/quick-links-literals";
 
-const bonnaNova = Bona_Nova({ subsets: ["latin"], weight: "400" });
+const bonnaNova: any = Bona_Nova({ subsets: ["latin"], weight: "400" });
 
 const QuickLinks: React.FC = () => {
   return (

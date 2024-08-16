@@ -53,7 +53,7 @@ const CurrentFooterSection: React.FC = () => {
                   <Image
                     src={facebook}
                     alt="Facebook"
-                    width={ICON_SIZE/2.5}
+                    width={ICON_SIZE}
                     height={ICON_SIZE}
                     className="group-hover:filter group-hover:invert"
                   />

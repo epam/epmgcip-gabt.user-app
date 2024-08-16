@@ -1,5 +1,17 @@
 import { Routes } from "@/src/constants/routes";
-export const QUICK_LINKS = [
+
+export interface IQuickLink {
+  href: string;
+  text: string;
+  backgroundImage: string;
+  backgroundColor: string;
+  backgroundSize: string;
+  backgroundPosition: string;
+  backgroundRepeat?: string;
+  paddingTop?: string;
+}
+
+export const QUICK_LINKS: IQuickLink[] = [
   {
     href: Routes.History,
     text: "History",

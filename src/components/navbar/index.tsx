@@ -13,21 +13,29 @@ import DesktopNavItems from "./dektop-nav-items";
 import MenuButton from "../buttons/menu-buttn";
 import useMediaQuery from "../hooks/useMediaQuery";
 
-export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [openItems, setOpenItems] = useState<Record<number, boolean>>({});
-  const [isLocaleSwitcherVisible, setLocaleSwitcherVisible] = useState(false);
+  const [isLocaleSwitcherVisible, setLocaleSwitcherVisible] =
+    useState<boolean>(false);
 
-  const menuRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const localeRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const localeRef = useRef<HTMLDivElement | null>(null);
 
-  const isMobile = useMediaQuery("(max-width: 768px)");
-  const toggleMenu = () => setIsOpen((prev) => !prev);
-  const toggleSubMenu = (index: number) =>
-    setOpenItems((prev) => ({ ...prev, [index]: !prev[index] }));
+  const isMobile: boolean = useMediaQuery("(max-width: 768px)");
 
-  const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+  const toggleMenu: () => void = () => setIsOpen((prev: boolean) => !prev);
+
+  const toggleSubMenu: (index: number) => void = (index) =>
+    setOpenItems((prev: Record<number, boolean>) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+
+  const handleClickOutside: (event: MouseEvent | TouchEvent) => void = (
+    event
+  ) => {
     if (
       menuRef.current &&
       !menuRef.current.contains(event.target as Node) &&
@@ -56,11 +64,11 @@ export const Navbar = () => {
     };
   }, [isOpen, isLocaleSwitcherVisible]);
 
-  const toggleLocaleSwitcher = () => {
+  const toggleLocaleSwitcher: () => void = () => {
     if (!isOpen) {
       setIsOpen(true);
     }
-    setLocaleSwitcherVisible((prev) => !prev);
+    setLocaleSwitcherVisible((prev: boolean) => !prev);
   };
 
   return (

@@ -5,7 +5,7 @@ import { Box, Section, Text } from "@radix-ui/themes";
 import Link from "next/link";
 import { Bona_Nova } from "next/font/google";
 
-import { QUICK_LINKS } from "@/src/constants/quick-links-literals";
+import { QUICK_LINKS, IQuickLink } from "@/src/constants/quick-links-literals";
 
 const bonnaNova = Bona_Nova({ subsets: ["latin"], weight: "400" });
 
@@ -13,7 +13,7 @@ const QuickLinks: React.FC = () => {
   return (
     <Box className="bg-gray-100 p-8">
       <Section className="flex flex-col justify-center items-center md:flex-row gap-5">
-        {QUICK_LINKS.map((link, index) => (
+        {QUICK_LINKS.map((link: IQuickLink, index: number) => (
           <Box
             key={index}
             className={`w-full sm:w-[420px] sm:h-[170px] p-4 bg-white shadow-md rounded-lg border border-gray-300  ${link.backgroundColor}`}

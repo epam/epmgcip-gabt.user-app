@@ -1,4 +1,15 @@
-export const MENU_LIST = [
+interface ISubMenuItem {
+  text: string;
+  href: string;
+}
+
+interface IMenuItem {
+  text: string;
+  href: string;
+  subMenu: ISubMenuItem[];
+}
+
+export const MENU_LIST: IMenuItem[] = [
   {
     text: "Home",
     href: "/",

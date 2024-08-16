@@ -9,7 +9,7 @@ import annonceImage1 from "@/public/img-1.svg";
 import annonceImage2 from "@/public/img-2.svg";
 import annonceImage3 from "@/public/img-3.svg";
 
-export const AnnonceSection = () => {
+export const AnnonceSection: React.FC = () => {
   const t = useTranslations("Index");
 
   return (

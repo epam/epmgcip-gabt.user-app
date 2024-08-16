@@ -18,12 +18,16 @@ import { footerLiterals } from "@/src/constants/footer-literals";
 
 import CollapsibleBox from "../boxes/collapsible-box/collapsible-box";
 
+const ICON_SIZE = 16;
+
 const CurrentFooterSection: React.FC = () => {
   const [visibleBox, setVisibleBox] = useState<string | null>(null);
 
-  const handleToggle = (box: string) => () => {
-    setVisibleBox((prev) => (prev === box ? null : box));
-  };
+  const handleToggle =
+    (box: string): (() => void) =>
+    () => {
+      setVisibleBox((prev: string | null) => (prev === box ? null : box));
+    };
 
   return (
     <Box className="bg-footer-bg text-white pt-8">
@@ -49,8 +53,8 @@ const CurrentFooterSection: React.FC = () => {
                   <Image
                     src={facebook}
                     alt="Facebook"
-                    width={7}
-                    height={6}
+                    width={ICON_SIZE/2.5}
+                    height={ICON_SIZE}
                     className="group-hover:filter group-hover:invert"
                   />
                 </div>
@@ -60,8 +64,8 @@ const CurrentFooterSection: React.FC = () => {
                   <Image
                     src={teleg}
                     alt="Telegram"
-                    width={16}
-                    height={16}
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
                     className="group-hover:filter group-hover:invert"
                   />
                 </div>
@@ -71,8 +75,8 @@ const CurrentFooterSection: React.FC = () => {
                   <Image
                     src={insta}
                     alt="Instagram"
-                    width={16}
-                    height={16}
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
                     className="group-hover:filter group-hover:invert"
                   />
                 </div>

@@ -1,7 +1,12 @@
 import React from "react";
 import { Box, Heading, Text } from "@radix-ui/themes";
 import Link from "next/link";
+
 import arrowIcon from "@/public/arrow.svg";
+
+import Image from "next/image";
+
+
 
 interface ICollapsibleBoxProps {
   title: string;
@@ -24,8 +29,8 @@ const CollapsibleBox: React.FC<ICollapsibleBoxProps> = ({
         style={{ color: "white" }}
       >
         {title}
-        <img
-          src={arrowIcon.src}
+        <Image
+          src={arrowIcon}
           alt="Arrow"
           className={`transition-transform duration-300 ${
             isVisible ? "rotate-180" : ""

@@ -1,5 +1,5 @@
-export type Props = {
+export interface IProps {
   text: string;
-  classnames?: string;
-  outBoxClassnames?: string;
-};
+  classNames?: string;
+  outBoxClassNames?: string;
+}

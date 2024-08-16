@@ -1,9 +1,11 @@
 import { Pathnames } from "next-intl/navigation";
 
-export const port = process.env.PORT || 3000;
+const DEFAULT_PORT: string = "3000";
 
-export const defaultLocale = "en" as const;
-export const locales = ["en", "ru", "uz"] as const;
+export const port: string = process.env.PORT || DEFAULT_PORT;
+
+export const defaultLocale: string = "en" as const;
+export const locales: string[] = ["en", "ru", "uz"] as const;
 
 export const pathnames = {
   "/": "/",

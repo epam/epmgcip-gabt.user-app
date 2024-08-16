@@ -26,7 +26,6 @@ After building, you can start the application:
 npm run start
 ```
 
-
 ## Environment Variables
 
 The following environment variables are required for Firebase configuration:

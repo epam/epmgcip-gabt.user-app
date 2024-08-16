@@ -70,13 +70,13 @@ const LocaleSwitcher: FC<LocaleSwitcherProps> = ({ isMobile, localeRef }) => {
   if (!isMounted) return null;
 
   const buttonClass = (locale: Locale) =>
-    `cursor-pointer p-2 ${currentLocale === locale ? "" : ""}`;
+    `cursor-pointer p-2 ${currentLocale === locale ? "font-bold text-dark-red underline" : ""}`;
 
   return (
     <div ref={localeRef}>
       {isMobile ? (
         <div>
-          <div className="flex flex justify-between px-10 p-4 border-b border-gray-300">
+          <div className="flex justify-between px-10 p-4 border-b border-gray-300">
             {Object.values(Locale).map((locale) => (
               <button
                 key={locale}
@@ -107,7 +107,7 @@ const LocaleSwitcher: FC<LocaleSwitcherProps> = ({ isMobile, localeRef }) => {
           {isDropdownVisible && (
             <div
               ref={dropdownRef}
-              className="hidden absolute mt-2 right-0 rounded border border-gray-300 p-5 bg-white-text md:block"
+              className="absolute hidden  mt-2 right-0 rounded border border-gray-300 p-5 bg-white-text md:block"
             >
               {Object.values(Locale).map(
                 (locale) =>

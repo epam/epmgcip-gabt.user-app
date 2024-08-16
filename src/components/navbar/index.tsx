@@ -27,15 +27,13 @@ export const Navbar: React.FC = () => {
 
   const toggleMenu: () => void = () => setIsOpen((prev: boolean) => !prev);
 
-  const toggleSubMenu: (index: number) => void = (index) =>
+  const toggleSubMenu: (index: number) => void = (index: number) =>
     setOpenItems((prev: Record<number, boolean>) => ({
       ...prev,
       [index]: !prev[index],
     }));
 
-  const handleClickOutside: (event: MouseEvent | TouchEvent) => void = (
-    event
-  ) => {
+  const handleClickOutside = (event: MouseEvent | TouchEvent) => {
     if (
       menuRef.current &&
       !menuRef.current.contains(event.target as Node) &&

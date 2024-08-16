@@ -1,4 +1,4 @@
-interface ISubMenuItem {
+export interface ISubMenuItem {
   text: string;
   href: string;
 }

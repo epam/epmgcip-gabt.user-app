@@ -2,7 +2,11 @@ import React, { FC, useEffect } from "react";
 import Image from "next/image";
 
 import arrowIcon from "@/public/arrow.svg";
-import { MENU_LIST } from "@/src/constants/nav-items-mock";
+import {
+  IMenuItem,
+  ISubMenuItem,
+  MENU_LIST,
+} from "@/src/constants/nav-items-mock";
 
 import { NavItem } from "../navitem";
 import LocaleSwitcher from "../../intro/language-switcher";
@@ -47,48 +51,54 @@ const MobileNavMenu: FC<IMobileNavMenuProps> = ({
     >
       {localeSwitcherVisible && <LocaleSwitcher isMobile={true} />}
 
-      {MENU_LIST.map(({ href, text, subMenu }, index) => (
-        <div key={index} className={containerClassName}>
-          <div
-            className={`${itemClassName} ${
-              index !== MENU_LIST.length - 1 ? "border-b border-gray-300" : ""
-            }`}
-          >
-            <div className="w-full flex items-center justify-between text-lg hover:text-dark-red">
-              <NavItem href={href} text={text} classname={navItemClassName} />
-              {subMenu && (
-                <button
-                  onClick={() => toggleSubMenu(index)}
-                  className={buttonClassName}
-                >
-                  <Image
-                    alt="arrow"
-                    src={arrowIcon.src}
-                    width={12}
-                    height={10}
-                    className={`${arrowIconClassName} ${
-                      openItems[index] ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
+      {MENU_LIST.map((menuItem: IMenuItem, index: number) => {
+        const { href, text, subMenu } = menuItem;
+
+        return (
+          <div key={index} className={containerClassName}>
+            <div
+              className={`${itemClassName} ${
+                index !== MENU_LIST.length - 1 ? "border-b border-gray-300" : ""
+              }`}
+            >
+              <div className="w-full flex items-center justify-between text-lg hover:text-dark-red">
+                <NavItem href={href} text={text} classname={navItemClassName} />
+                {subMenu && (
+                  <button
+                    onClick={() => toggleSubMenu(index)}
+                    className={buttonClassName}
+                  >
+                    <Image
+                      alt="arrow"
+                      src={arrowIcon.src}
+                      width={12}
+                      height={10}
+                      className={`${arrowIconClassName} ${
+                        openItems[index] ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                )}
+              </div>
+              {openItems[index] && subMenu && (
+                <div className={subMenuClassName}>
+                  {subMenu.map(
+                    ({ href: subHref, text: subText }: ISubMenuItem) => (
+                      <a
+                        key={subHref}
+                        href={subHref}
+                        className="block hover:text-dark-red"
+                      >
+                        {subText}
+                      </a>
+                    )
+                  )}
+                </div>
               )}
             </div>
-            {openItems[index] && subMenu && (
-              <div className={subMenuClassName}>
-                {subMenu.map(({ href: subHref, text: subText }) => (
-                  <a
-                    key={subHref}
-                    href={subHref}
-                    className="block hover:text-dark-red"
-                  >
-                    {subText}
-                  </a>
-                ))}
-              </div>
-            )}
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

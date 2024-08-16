@@ -6,7 +6,7 @@ import { useTranslations } from "use-intl";
 const bonnaNova = Bona_Nova({ subsets: ["latin"], weight: "400" });
 
 export const WelcomeText: React.FC = () => {
-  const t: Function = useTranslations("Index");
+  const t: (key: string) => string = useTranslations("Index");
 
   return (
     <Box className="flex justify-center">

@@ -24,7 +24,7 @@ export const ContactsInfo = () => {
 
       <Flex className="flex-col-reverse md:flex-row">
         <Box className="w-full md:w-[50%] h-[260px] md:h-[500px]">
-          {/* <Map /> */}
+          <Map />
         </Box>
         <Box className="md:w-[50%] md:h-[500px] px-[30px] py-[40px] flex justify-center items-center flex-col bg-dark-red text-white text-center">
           <Image src={flowerIcon} alt="flower" />

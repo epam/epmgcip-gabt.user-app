@@ -2,11 +2,8 @@ import React from "react";
 import { Box, Heading, Text } from "@radix-ui/themes";
 import Link from "next/link";
 
-import arrowIcon from "@/public/arrow.svg";
-
 import Image from "next/image";
-
-
+import arrowIcon from "@/public/arrow.svg";
 
 interface ICollapsibleBoxProps {
   title: string;

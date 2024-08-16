@@ -1,8 +1,5 @@
 import { Button } from "@radix-ui/themes";
-
-
 import type { IProps } from "./types";
-
 
 export const BasicButton = ({ text, outBoxClassNames, classNames }: IProps) => {
   return (

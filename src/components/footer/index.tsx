@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Box, Section, Text } from "@radix-ui/themes";
+
 import {
   FOOTER_SECTION_ONE,
   FOOTER_SECTION_THREE,

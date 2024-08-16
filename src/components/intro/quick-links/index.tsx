@@ -6,8 +6,9 @@ import Link from "next/link";
 import { Bona_Nova } from "next/font/google";
 
 import { IQuickLink, QUICK_LINKS } from "@/src/constants/quick-links-literals";
+import { IFont } from "@/src/constants/fonts";
 
-const bonnaNova: any = Bona_Nova({ subsets: ["latin"], weight: "400" });
+const bonnaNova: IFont = Bona_Nova({ subsets: ["latin"], weight: "400" });
 
 const QuickLinks: React.FC = () => {
   return (

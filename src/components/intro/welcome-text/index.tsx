@@ -3,7 +3,9 @@ import { Box, Heading, Section, Text } from "@radix-ui/themes";
 import { Bona_Nova } from "next/font/google";
 import { useTranslations } from "use-intl";
 
-const bonnaNova = Bona_Nova({ subsets: ["latin"], weight: "400" });
+import { IFont } from "@/src/constants/fonts";
+
+const bonnaNova: IFont = Bona_Nova({ subsets: ["latin"], weight: "400" });
 
 export const WelcomeText: React.FC = () => {
   const t: (key: string) => string = useTranslations("Index");

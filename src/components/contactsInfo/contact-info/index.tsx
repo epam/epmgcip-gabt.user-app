@@ -11,7 +11,7 @@ import telegramIcon from "@/public/contact-info/telegram.svg";
 import { bonnaNova, jost } from "@/src/constants/utils";
 
 export const ContactInfo = () => {
-  const t = useTranslations("Index");
+  const t: (key: string) => string = useTranslations("Index");
 
   return (
     <Box className="w-full md:w-[50%] md:h-[500px] bg-creamy-yellow/[.7] flex justify-center items-center px-[30px] xl:px-[70px] py-[40px] bg-no-repeat bg-center bg-cover bg-contact-info-contacts-bg">

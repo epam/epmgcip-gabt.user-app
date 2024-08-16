@@ -18,7 +18,7 @@ import { footerLiterals } from "@/src/constants/footer-literals";
 
 import CollapsibleBox from "../boxes/collapsible-box/collapsible-box";
 
-const ICON_SIZE = 16;
+const ICON_SIZE: number = 16;
 
 const CurrentFooterSection: React.FC = () => {
   const [visibleBox, setVisibleBox] = useState<string | null>(null);

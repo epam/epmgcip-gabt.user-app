@@ -1,4 +1,3 @@
-import { FC } from "react";
 import Image from "next/image";
 
 import openMenu from "@/public/openBar.svg";
@@ -6,7 +5,7 @@ import closeMenu from "@/public/Close.svg";
 
 import { IMenuButtonProps } from "../menu-buttn/types";
 
-const MenuButton: FC<IMenuButtonProps> = ({
+const MenuButton: React.FC<IMenuButtonProps> = ({
   isOpen,
   toggleMenu,
   buttonRef,

@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
 import { Box, Section, Text } from "@radix-ui/themes";
 
 import footerLogo from "@/public/footerLogo.svg";

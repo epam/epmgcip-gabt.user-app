@@ -1,5 +1,6 @@
 import { FC, RefObject, useEffect, useRef, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+
 import { localeLiterals } from "@/src/constants/local-literals";
 import arrowIcon from "@/public/arrow.svg";
 import { Locale } from "@/src/constants/locales";
@@ -47,7 +48,10 @@ const LocaleSwitcher: FC<ILocaleSwitcherProps> = ({ isMobile, localeRef }) => {
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
       setIsDropdownVisible(false);
     }
   };
@@ -64,7 +68,9 @@ const LocaleSwitcher: FC<ILocaleSwitcherProps> = ({ isMobile, localeRef }) => {
     };
   }, [isDropdownVisible]);
 
-  if (!isMounted) return null;
+  if (!isMounted) {
+    return null;
+  }
 
   const buttonClass = (locale: Locale) =>
     `cursor-pointer p-2 ${currentLocale === locale ? "font-bold text-dark-red underline" : ""}`;

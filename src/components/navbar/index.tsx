@@ -1,10 +1,12 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+
+import { useEffect, useRef, useState } from "react";
 import { Flex } from "@radix-ui/themes";
 import Image from "next/image";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 
 import logo from "@/public/theatre-icon.svg";
+
 import LocaleSwitcher from "../intro/language-switcher";
 import MobileNavMenu from "./mobile-menu";
 import DesktopNavItems from "./dektop-nav-items";

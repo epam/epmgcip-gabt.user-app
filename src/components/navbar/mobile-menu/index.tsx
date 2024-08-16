@@ -3,9 +3,9 @@ import Image from "next/image";
 
 import arrowIcon from "@/public/arrow.svg";
 import { MENU_LIST } from "@/src/constants/nav-items-mock";
+
 import { NavItem } from "../navitem";
 import LocaleSwitcher from "../../intro/language-switcher";
-
 import { IMobileNavMenuProps } from "./types";
 
 const MobileNavMenu: FC<IMobileNavMenuProps> = ({

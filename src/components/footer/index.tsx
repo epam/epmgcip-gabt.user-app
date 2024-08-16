@@ -9,7 +9,6 @@ import facebook from "@/public/facebook.svg";
 import teleg from "@/public/telegram.svg";
 import insta from "@/public/insta.svg";
 import EpamLogo from "@/public/epam-logo.svg";
-
 import {
   FOOTER_SECTION_ONE,
   FOOTER_SECTION_THREE,

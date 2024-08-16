@@ -8,8 +8,7 @@ import { BasicButton } from "../buttons";
 import { EventList } from "./event-list";
 
 export const NextEvents: () => JSX.Element = () => {
-  // eslint-disable-next-line @typescript-eslint/typedef
-  const t = useTranslations("Index");
+  const t: (arg: string) => string = useTranslations("Index");
   const [filterOption, setFilterOption]: [
     EventCategory,
     Dispatch<SetStateAction<EventCategory>>,
@@ -29,7 +28,7 @@ export const NextEvents: () => JSX.Element = () => {
           <DropdownMenu.Root>
             <DropdownMenu.Trigger>
               <Button variant="soft">
-                Options
+                {t("Options")}
                 <DropdownMenu.TriggerIcon />
               </Button>
             </DropdownMenu.Trigger>

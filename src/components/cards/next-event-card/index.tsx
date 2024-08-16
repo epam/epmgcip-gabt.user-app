@@ -1,8 +1,10 @@
 import { Box, Flex, Text } from "@radix-ui/themes";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
-import { INextEvent, padToStartNumber } from "@/src/constants/next-events-mock";
+import { INextEvent } from "@/src/constants/next-events-mock";
+import { formatDateWithDayName } from "@/src/constants/utils";
 
 export const NextEventCard: ({
   type,
@@ -19,27 +21,7 @@ export const NextEventCard: ({
   img,
   time,
 }: INextEvent) => {
-  function formatDateWithDayName(date: Date): string {
-    const daysOfWeek: string[] = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    const dayName: string = daysOfWeek[date.getDay()];
-
-    const day: string = String(date.getDate()).padStart(padToStartNumber, "0");
-    const month: string = String(date.getMonth() + 1).padStart(
-      padToStartNumber,
-      "0"
-    );
-    const year: number = date.getFullYear();
-
-    return `${dayName}, ${day}.${month}.${year}`;
-  }
+  const t: (arg: string) => string = useTranslations("Index");
 
   return (
     <Box className="max-w-[310px] w-full border border-solid border-black  bg-white">
@@ -80,15 +62,17 @@ export const NextEventCard: ({
             height={16}
           />
 
-          <Text className="text-sm text-black">{time} h</Text>
+          <Text className="text-sm text-black">
+            {time} {t("h")}
+          </Text>
         </Flex>
       </Box>
 
       <Link
         href={link}
-        className="py-4 flex items-center justify-center text-[15px] tracking-wide	border-t border-solid border-black hover:opacity-60"
+        className="py-4 flex items-center justify-center text-[15px] tracking-wide border-t border-solid border-black hover:opacity-60"
       >
-        More Info
+        {t("more-info")}
       </Link>
     </Box>
   );

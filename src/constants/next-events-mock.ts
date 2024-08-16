@@ -9,6 +9,7 @@ export enum EventCategory {
 }
 
 export interface INextEvent {
+  id: number;
   type: EventCategory;
   img: string;
   title: string;
@@ -32,6 +33,7 @@ const formattedTime: string = `${now.getHours().toString().padStart(padToStartNu
 
 export const NEXT_EVENTS: INextEvent[] = [
   {
+    id: 1,
     type: EventCategory.Opera,
     img: "/mock-data/mock-next-event-img.jpg",
     title:
@@ -42,6 +44,7 @@ export const NEXT_EVENTS: INextEvent[] = [
     link: "/",
   },
   {
+    id: 2,
     type: EventCategory.Ballet,
     img: "/mock-data/mock-next-event-img.jpg",
     title:
@@ -52,6 +55,7 @@ export const NEXT_EVENTS: INextEvent[] = [
     link: "/",
   },
   {
+    id: 3,
     type: EventCategory.Childrens,
     img: "/mock-data/mock-next-event-img.jpg",
     title:
@@ -62,6 +66,7 @@ export const NEXT_EVENTS: INextEvent[] = [
     link: "/",
   },
   {
+    id: 4,
     type: EventCategory.Concerts,
     img: "/mock-data/mock-next-event-img.jpg",
     title:
@@ -72,6 +77,7 @@ export const NEXT_EVENTS: INextEvent[] = [
     link: "/",
   },
   {
+    id: 5,
     type: EventCategory.Musical,
     img: "/mock-data/mock-next-event-img.jpg",
     title:
@@ -82,6 +88,7 @@ export const NEXT_EVENTS: INextEvent[] = [
     link: "/",
   },
   {
+    id: 6,
     type: EventCategory.Tours,
     img: "/mock-data/mock-next-event-img.jpg",
     title:

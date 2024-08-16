@@ -58,12 +58,13 @@ export const EventList: React.FC<IProps> = ({ filterOption }: IProps) => {
         ref={emblaRef}
       >
         <div className="embla__container flex gap-x-[18px]">
-          {filteredList.map((item: INextEvent, index: number) => (
+          {filteredList.map((item: INextEvent) => (
             <div
-              key={index}
+              key={item.id}
               className="embla__slide relative h-full w-full flex justify-center min-[1124px]:flex-[0_0_calc(25%-20px)] lg:flex-[0_0_calc(33%-20px)] sm:flex-[0_0_calc(51%-20px)] flex-[0_0_100%]"
             >
               <NextEventCard
+                id={item.id}
                 img={item.img}
                 date={item.date}
                 link={item.link}

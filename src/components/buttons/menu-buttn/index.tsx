@@ -4,6 +4,7 @@ import openMenu from "@/public/openBar.svg";
 import closeMenu from "@/public/Close.svg";
 
 import { IMenuButtonProps } from "../menu-buttn/types";
+import { MENU_BUTTON_ALT, MENU_BUTTON_TEXT } from "@/src/constants/menu-button-literals";
 
 const MenuButton: React.FC<IMenuButtonProps> = ({
   isOpen,
@@ -17,10 +18,12 @@ const MenuButton: React.FC<IMenuButtonProps> = ({
     <button ref={buttonRef} onClick={toggleMenu} className={className}>
       <Image
         src={isOpen ? closeMenu : openMenu}
-        alt={isOpen ? "Close menu" : "Open menu"}
+        alt={isOpen ? MENU_BUTTON_ALT.CLOSE : MENU_BUTTON_ALT.OPEN}
         className={iconClassName}
       />
-      <span className={textClassName}>{isOpen ? "Close" : "MENU"}</span>
+      <span className={textClassName}>
+        {isOpen ? MENU_BUTTON_TEXT.CLOSE : MENU_BUTTON_TEXT.OPEN}
+      </span>
     </button>
   </div>
 );

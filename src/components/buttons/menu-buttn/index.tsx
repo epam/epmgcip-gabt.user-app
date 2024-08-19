@@ -3,8 +3,11 @@ import Image from "next/image";
 import openMenu from "@/public/openBar.svg";
 import closeMenu from "@/public/Close.svg";
 
+import {
+  MENU_BUTTON_ALT,
+  MENU_BUTTON_TEXT,
+} from "@/src/constants/menu-button-literals";
 import { IMenuButtonProps } from "../menu-buttn/types";
-import { MENU_BUTTON_ALT, MENU_BUTTON_TEXT } from "@/src/constants/menu-button-literals";
 
 const MenuButton: React.FC<IMenuButtonProps> = ({
   isOpen,

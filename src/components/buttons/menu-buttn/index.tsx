@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import openMenu from "@/public/openBar.svg";
 import closeMenu from "@/public/Close.svg";
-
 import {
   MENU_BUTTON_ALT,
   MENU_BUTTON_TEXT,

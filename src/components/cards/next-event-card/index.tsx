@@ -62,9 +62,7 @@ export const NextEventCard: ({
             height={16}
           />
 
-          <Text className="text-sm text-black">
-            {time} {t("h")}
-          </Text>
+          <Text className="text-sm text-black">{`${time} ${t("h")}`}</Text>
         </Flex>
       </Box>
 

@@ -12,7 +12,7 @@ import { ContactInfo } from "./contact-info";
 import { Map } from "./map";
 
 export const ContactsInfo = () => {
-  const t = useTranslations("Index");
+  const t: (key: string) => string = useTranslations("Index");
 
   return (
     <Box>

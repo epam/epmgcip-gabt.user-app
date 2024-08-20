@@ -1,29 +1,33 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { Box, Section, Text } from "@radix-ui/themes";
 import Link from "next/link";
+import { Box, Section, Text } from "@radix-ui/themes";
 
-import footerLogo from "@/public/footer-logo.png";
+import footerLogo from "@/public/footerLogo.svg";
+import facebook from "@/public/facebook.svg";
+import teleg from "@/public/telegram.svg";
+import insta from "@/public/insta.svg";
+import EpamLogo from "@/public/epam-logo.svg";
 import {
   FOOTER_SECTION_ONE,
   FOOTER_SECTION_THREE,
   FOOTER_SECTION_TWO,
 } from "@/src/constants/footer-items-mock";
-import facebook from "@/public/facebook.svg";
-import teleg from "@/public/telegram.svg";
-import insta from "@/public/insta.svg";
 import { footerLiterals } from "@/src/constants/footer-literals";
-import EpamLogo from "@/public/epam-logo.svg";
 
 import CollapsibleBox from "../boxes/collapsible-box/collapsible-box";
+
+const ICON_SIZE: number = 16;
 
 const CurrentFooterSection: React.FC = () => {
   const [visibleBox, setVisibleBox] = useState<string | null>(null);
 
-  const handleToggle = (box: string) => () => {
-    setVisibleBox((prev) => (prev === box ? null : box));
-  };
+  const handleToggle =
+    (box: string): (() => void) =>
+    () => {
+      setVisibleBox((prev: string | null) => (prev === box ? null : box));
+    };
 
   return (
     <Box className="bg-footer-bg text-white pt-8">
@@ -50,7 +54,7 @@ const CurrentFooterSection: React.FC = () => {
                     src={facebook}
                     alt="Facebook"
                     width={7}
-                    height={6}
+                    height={ICON_SIZE}
                     className="group-hover:filter group-hover:invert"
                   />
                 </div>
@@ -60,8 +64,8 @@ const CurrentFooterSection: React.FC = () => {
                   <Image
                     src={teleg}
                     alt="Telegram"
-                    width={16}
-                    height={16}
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
                     className="group-hover:filter group-hover:invert"
                   />
                 </div>
@@ -71,8 +75,8 @@ const CurrentFooterSection: React.FC = () => {
                   <Image
                     src={insta}
                     alt="Instagram"
-                    width={16}
-                    height={16}
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
                     className="group-hover:filter group-hover:invert"
                   />
                 </div>
@@ -102,11 +106,14 @@ const CurrentFooterSection: React.FC = () => {
       <Box className="border-t border-gray-800 text-white">
         <Section className="flex justify-center py-4">
           <Text
-            className="text-sm flex items-center"
+            className="text-sm flex flex-col  items-center text-center  md:flex-row"
             style={{ color: "white" }}
           >
             {footerLiterals.copyright}
-            <Link href="https://www.epam.com">
+            <Link href="https://www.epam.com" className="flex ml-1">
+              <Text className="text-sm flex items-center">
+                {footerLiterals.epamText}
+              </Text>
               <Image src={EpamLogo} alt="EPAM" className="ml-2 mt-1" />
             </Link>
           </Text>

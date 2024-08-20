@@ -2,7 +2,11 @@ import { Button } from "@radix-ui/themes";
 
 import type { IProps } from "./types";
 
-export const BasicButton = ({ text, outBoxClassNames, classNames }: IProps) => {
+export const BasicButton: React.FC<IProps> = ({
+  text,
+  outBoxClassNames,
+  classNames,
+}) => {
   return (
     <div className={`${outBoxClassNames} p-1 cursor-pointer`}>
       <Button

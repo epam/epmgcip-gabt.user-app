@@ -7,11 +7,17 @@ import {
 
 import { GoogleApiKey } from "@/src/constants/utils";
 
-export const Map = () => {
-  const mapCoordinates = {
+interface ICoordinates {
+  lat: number;
+  lng: number;
+}
+
+export const Map: React.FC = () => {
+  const mapCoordinates: ICoordinates = {
     lat: 41.3093479554046,
     lng: 69.27150505941223,
   };
+
   if (GoogleApiKey) {
     return (
       <APIProvider apiKey={GoogleApiKey}>

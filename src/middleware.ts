@@ -9,7 +9,7 @@ export default createMiddleware({
   localePrefix,
 });
 
-export const config: { matcher: string[] } = {
+export const config = {
   matcher: [
     // Enable a redirect to a matching locale at the root
     "/",

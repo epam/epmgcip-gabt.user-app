@@ -52,29 +52,31 @@ export const EventList: React.FC<IProps> = ({ filterOption }: IProps) => {
     filterOption === EventCategory.All ? item : item.type === filterOption
   );
   return (
-    <div className="embla relative lg:px-[70px] sm:px-[33px]">
-      <div
-        className="embala__viewport max-w-[1300px] overflow-hidden"
-        ref={emblaRef}
-      >
-        <div className="embla__container flex gap-x-[18px]">
-          {filteredList.map((item: INextEvent) => (
-            <div
-              key={item.id}
-              className="embla__slide relative h-full w-full flex justify-center min-[1124px]:flex-[0_0_calc(25%-20px)] lg:flex-[0_0_calc(33%-20px)] sm:flex-[0_0_calc(51%-20px)] flex-[0_0_100%]"
-            >
-              <NextEventCard
-                id={item.id}
-                img={item.img}
-                date={item.date}
-                link={item.link}
-                text={item.text}
-                time={item.time}
-                title={item.title}
-                type={item.type}
-              />
-            </div>
-          ))}
+    <div className="embla relative">
+      <div className="lg:px-[70px] px-[30px]">
+        <div
+          className="embala__viewport max-w-[1440px] overflow-hidden"
+          ref={emblaRef}
+        >
+          <div className="embla__container flex xl:justify-center gap-x-[18px]">
+            {filteredList.map((item: INextEvent) => (
+              <div
+                key={item.id}
+                className="embla__slide relative h-full w-full flex justify-center min-[1124px]:flex-[0_0_calc(25%-20px)] lg:flex-[0_0_calc(33%-20px)] sm:flex-[0_0_calc(51%-20px)] flex-[0_0_100%]"
+              >
+                <NextEventCard
+                  id={item.id}
+                  img={item.img}
+                  date={item.date}
+                  link={item.link}
+                  text={item.text}
+                  time={item.time}
+                  title={item.title}
+                  type={item.type}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

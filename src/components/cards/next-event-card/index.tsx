@@ -24,14 +24,14 @@ export const NextEventCard: ({
   const t: (arg: string) => string = useTranslations("Index");
 
   return (
-    <Box className="max-w-[310px] w-full border border-solid border-black  bg-white">
+    <Box className="w-[310px] border border-solid border-black  bg-white">
       <Box className="w-full h-[228px]">
         <Image src={`${img}`} alt="image" height={228} width={310} />
       </Box>
 
       <Box className="py-[17px] px-[20px]">
         <Text as="p" className="font-medium uppercase text-dark-red text-sm">
-          {type}
+          {t(`${type}`)}
         </Text>
 
         <Text

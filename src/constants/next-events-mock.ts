@@ -19,7 +19,7 @@ export interface INextEvent {
   link: string;
 }
 
-const now: Date = new Date();
+const now: Date = new Date("2024, 08, 21");
 
 export const padToStartNumber: number = 2;
 

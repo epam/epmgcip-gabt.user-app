@@ -2,6 +2,18 @@
   "Index": {
     "home-page-welcome": "Xush kelibsiz",
     "home-page-welcome-description": "Alisher Navoiy nomidagi O‘zbekiston Davlat Akademik Bolshoy teatri",
-    "button-buy-tickets": "BILETLARNI SOTIB OLING"
+    "button-buy-tickets": "BILETLARNI SOTIB OLING",
+    "next-events": "[uz] Next events",
+    "ALL": "[uz] ALL",
+    "OPERA": "[uz] OPERA",
+    "BALLET": "[uz] BALLET",
+    "CHILDREN'S": "[uz] CHILDREN'S",
+    "MUSICAL": "[uz] MUSICAL",
+    "CONCERTS": "[uz] CONCERTS",
+    "TOURS": "[uz] TOURS",
+    "event-type": "[uz] Event Type",
+    "more-info": "[uz] More info",
+    "h": "[uz] h",
+    "see-all-events": "[uz] see all events"
   }
 }

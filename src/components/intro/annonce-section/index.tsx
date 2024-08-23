@@ -21,7 +21,7 @@ export const AnnonceSection: React.FC = () => {
           outBoxClassNames="mt-5 mb-5 w-32 h-12 bg-dark-red"
         />
       </Section>
-      <Section className="overflow-hidden flex justify-center">
+      <Section className="max-w-[1380px] px-[30px] mx-auto overflow-hidden flex justify-center">
         <div className="flex gap-16">
           <Image
             className="w-[30vw] min-w-[150px]"

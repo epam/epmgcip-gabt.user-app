@@ -16,15 +16,15 @@ export const NextEvents: () => JSX.Element = () => {
 
   return (
     <Box className="pt-[48px] pb-[40px] bg-light-yellow">
-      <Box className="mx-auto max-w-[1440px]">
+      <Box className="mx-auto max-w-[1380px]">
         <Heading
           as="h3"
-          className={`lg:px-[70px] px-[30px] uppercase text-[59px] leading-[65px] tracking-wide text-center lg:text-left`}
+          className={`px-[30px] uppercase text-[59px] leading-[65px] tracking-wide text-center lg:text-left`}
         >
           {t("next-events")}
         </Heading>
 
-        <Flex className="lg:px-[70px] px-[30px] mt-[7px] lg:mt-[26px] flex-col gap-y-[20px] gap-x-[15px] items-center lg:flex-row lg:justify-between">
+        <Flex className="px-[30px] mt-[7px] lg:mt-[26px] flex-col gap-y-[20px] gap-x-[15px] items-center lg:flex-row lg:justify-between">
           <div className="xl:hidden">
             <DropdownMenu.Root>
               <DropdownMenu.Trigger>
@@ -78,7 +78,7 @@ export const NextEvents: () => JSX.Element = () => {
           />
         </Flex>
 
-        <Box className="mt-[30px] mx-auto max-w-[1440px]">
+        <Box className="mt-[30px] mx-auto max-w-[1380px]">
           <EventList filterOption={filterOption} />
         </Box>
       </Box>

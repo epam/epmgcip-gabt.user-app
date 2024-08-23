@@ -1,6 +1,5 @@
-import useEmblaCarousel, {
-  type EmblaViewportRefType,
-} from "embla-carousel-react";
+import useEmblaCarousel from "embla-carousel-react";
+import type { EmblaViewportRefType } from "embla-carousel-react";
 import { useCallback } from "react";
 import Image from "next/image";
 import { EmblaCarouselType } from "embla-carousel";
@@ -22,8 +21,8 @@ export const EventList: React.FC<IProps> = ({ filterOption }: IProps) => {
   ] = useEmblaCarousel({
     dragFree: true,
     breakpoints: {
-      "(min-width: 1124px)": { slidesToScroll: 4 },
-      "(min-width: 1024px)": { slidesToScroll: 3 },
+      "(min-width: 1400px)": { slidesToScroll: 4 },
+      // "(min-width: 1024px)": { slidesToScroll: 3 },
     },
   });
   const {
@@ -53,16 +52,16 @@ export const EventList: React.FC<IProps> = ({ filterOption }: IProps) => {
   );
   return (
     <div className="embla relative">
-      <div className="lg:px-[70px] px-[30px]">
+      <div className="px-[30px]">
         <div
           className="embala__viewport max-w-[1440px] overflow-hidden"
           ref={emblaRef}
         >
-          <div className="embla__container flex xl:justify-center gap-x-[18px]">
+          <div className="embla__container flex  gap-x-[18px]">
             {filteredList.map((item: INextEvent) => (
               <div
                 key={item.id}
-                className="embla__slide relative h-full w-full flex justify-center min-[1124px]:flex-[0_0_calc(25%-20px)] lg:flex-[0_0_calc(33%-20px)] sm:flex-[0_0_calc(51%-20px)] flex-[0_0_100%]"
+                className="embla__slide relative h-full w-full flex justify-center min-[1420px]:flex-[0_0_calc(25%-20px)] xl:flex-[0_0_calc(33%-20px)] sm:flex-[0_0_calc(51%-20px)] flex-[0_0_100%]"
               >
                 <NextEventCard
                   id={item.id}
@@ -81,7 +80,7 @@ export const EventList: React.FC<IProps> = ({ filterOption }: IProps) => {
       </div>
 
       <button
-        className="embla__prev lg:block hidden absolute top-[calc(590px-66%)] left-0 bg-dark-red rounded-full p-[3px]"
+        className="embla__prev lg:block hidden absolute top-[calc(590px-66%)] min-[1420px]:left-[-17px] left-[30px] bg-dark-red rounded-full p-[3px]"
         onClick={scrollPrev}
       >
         <div className="w-[29px] h-[29px] bg-dark-red flex justify-center items-center rounded-full border border-solid border-white hover:border-dark-red">
@@ -96,7 +95,7 @@ export const EventList: React.FC<IProps> = ({ filterOption }: IProps) => {
       </button>
 
       <button
-        className="embla__next lg:block hidden absolute top-[calc(590px-66%)] right-0  bg-dark-red rounded-full p-[3px]"
+        className="embla__next lg:block hidden absolute top-[calc(590px-66%)] min-[1420px]:right-[-17px] right-[30px] bg-dark-red rounded-full p-[3px]"
         onClick={scrollNext}
       >
         <div className="w-[29px] h-[29px] bg-dark-red flex justify-center items-center rounded-full border border-solid border-white hover:border-dark-red">

@@ -5,6 +5,10 @@ import "@radix-ui/themes/styles.css";
 import "./[locale]/globals.css";
 import { Theme } from "@radix-ui/themes";
 
+import Footer from "@/src/components/footer";
+
+import { Navbar } from "../components/navbar";
+
 const jost = Jost({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -23,7 +27,10 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={jost.className}>
+        <Navbar />
+
         <Theme>{children}</Theme>
+        <Footer />
       </body>
     </html>
   );

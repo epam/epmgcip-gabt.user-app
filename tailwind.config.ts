@@ -26,10 +26,11 @@ const config: Config = {
       "golden-yellow": "#E7B24C",
       "creamy-yellow": "rgba(241, 227, 189, 1)",
       white: "#FFF",
+      "light-yellow": "#F9EED7",
+      black: "#160807",
+      "warm-orange": "#E7B24C",
     },
   },
   plugins: [],
 };
 export default config;
-
-

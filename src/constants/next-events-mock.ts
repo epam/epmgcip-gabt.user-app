@@ -19,17 +19,16 @@ export interface INextEvent {
   link: string;
 }
 
-const now: Date = new Date("2024, 08, 21");
-
 export const padToStartNumber: number = 2;
 
-const formattedTime: string = `${now.getHours().toString().padStart(padToStartNumber, "0")}:${now
-  .getMinutes()
-  .toString()
-  .padStart(
-    padToStartNumber,
-    "0"
-  )}:${now.getSeconds().toString().padStart(padToStartNumber, "0")}`;
+const formatTime = (date: Date): string =>
+  `${date.getHours().toString().padStart(padToStartNumber, "0")}:${date
+    .getMinutes()
+    .toString()
+    .padStart(
+      padToStartNumber,
+      "0"
+    )}:${date.getSeconds().toString().padStart(padToStartNumber, "0")}`;
 
 export const NEXT_EVENTS: INextEvent[] = [
   {
@@ -38,9 +37,9 @@ export const NEXT_EVENTS: INextEvent[] = [
     img: "/mock-data/mock-next-event-img.jpg",
     title:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-    text: "Malesuada pellentesque elit eget gravida cum sociis. Pretium viverra suspendisse potenti nullam ac tortor. Pharetra et ultrices neque ornare aenean euismod elementum nisi. Id eu nisl nunc mi ipsum.elis imperdiet proin fermentum leo. Quisque id diam vel quam elementum pulvinar etiam non. Purus semper eget duis at tellus. Lacinia at quis risus sed vulputate odio ut enim. Tincidunt nunc pulvinar sapien et. Aliquam id diam maecenas ultricies mi eget mauris pharetra et. Sit amet cursus sit amet. Ac auctor augue mauris augue neque gravida in fermentum. Ut eu sem integer vitae justo eget. Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Sit amet mattis vulputate enim. Viverra nam libero justo laoreet.",
-    date: now,
-    time: formattedTime,
+    text: "Malesuada pellentesque elit eget gravida cum sociis. Pretium viverra suspendisse potenti nullam ac tortor. Pharetra et ultrices neque ornare aenean euismod elementum nisi. Id eu nisl nunc mi ipsum.",
+    date: new Date("2024-03-18"),
+    time: formatTime(new Date("2024-03-18")),
     link: "/",
   },
   {
@@ -49,9 +48,9 @@ export const NEXT_EVENTS: INextEvent[] = [
     img: "/mock-data/mock-next-event-img.jpg",
     title:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-    text: "Malesuada pellentesque elit eget gravida cum sociis. Pretium viverra suspendisse potenti nullam ac tortor. Pharetra et ultrices neque ornare aenean euismod elementum nisi. Id eu nisl nunc mi ipsum. Ut lectus arcu bibendum at varius vel pharetra vel turpis. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Luctus accumsan tortor posuere ac. In metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Quisque id diam vel quam elementum pulvinar etiam non. Purus semper eget duis at tellus. Lacine enim. Viverra nam libero justo laoreet.",
-    date: now,
-    time: formattedTime,
+    text: "Malesuada pellentesque elit eget gravida cum sociis. Pretium viverra suspendisse potenti nullam ac tortor. Pharetra et ultrices neque ornare aenean euismod elementum nisi. Id eu nisl nunc mi ipsum.",
+    date: new Date("2024-03-24"),
+    time: formatTime(new Date("2024-03-24")),
     link: "/",
   },
   {
@@ -60,9 +59,9 @@ export const NEXT_EVENTS: INextEvent[] = [
     img: "/mock-data/mock-next-event-img.jpg",
     title:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-    text: "Malesuada pellentesque elit eget gravida cum sociis. Pretium viverra suspendisse potenti nullam ac tortor. Pharetra et ultrices neque ornare aenean euismod elementum nisi. Id eu nisl nunc mi ipsum. Ut lectus arcu bibendum at varius vel pharetra vel turpis. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Luctus accumsan tortor posuere ac. In metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Quisque id diam vel quam elementum pulvinar etiam non. Purus semper eget duis at tellus. Lacinia at quis risus sed vulputate odio ut enim. Tincidunt nunc pulvinar sapien et. Aliquam id diam maecenas ultricies mi eget mauris pharetra et. Sit amet cursus sit amet. Ac auctor augue mauris augue neque gravidu scelerisque felis imperdiet proin fermentum leo. Quisque id diam vel quam elementum pulvinar etiam non. Purus semper eget duis at tellus. Lacinia at quis risus sed vulputate odio ut enim. Tincidunt nunc pulvinar sapien et. Aliquam id diam maecenas ultricies mi eget mauris pharetra et. Sit amet cursus sit amet. Ac auctor augue mauris augue neque gravida in fermentum. Ut eu sem integer vitae justo eget. Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Sit amet mattis vulputate enim. Viverra nam libero justo laoreet.",
-    date: now,
-    time: formattedTime,
+    text: "Malesuada pellentesque elit eget gravida cum sociis. Pretium viverra suspendisse potenti nullam ac tortor. Pharetra et ultrices neque ornare aenean euismod elementum nisi. Id eu nisl nunc mi ipsum.",
+    date: new Date("2024-04-01"),
+    time: formatTime(new Date("2024-04-01")),
     link: "/",
   },
   {
@@ -71,9 +70,9 @@ export const NEXT_EVENTS: INextEvent[] = [
     img: "/mock-data/mock-next-event-img.jpg",
     title:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-    text: "Malesuada pellentesavida in fermentum. Ut eu sem integer vitae justo eget. Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Sit amet mattis vulputate enim. Viverra nam libero justo laoreet.",
-    date: now,
-    time: formattedTime,
+    text: "Malesuada pellentesque elit eget gravida cum sociis. Pretium viverra suspendisse potenti nullam ac tortor. Pharetra et ultrices neque ornare aenean euismod elementum nisi. Id eu nisl nunc mi ipsum.",
+    date: new Date("2024-04-05"),
+    time: formatTime(new Date("2024-04-05")),
     link: "/",
   },
   {
@@ -82,9 +81,9 @@ export const NEXT_EVENTS: INextEvent[] = [
     img: "/mock-data/mock-next-event-img.jpg",
     title:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-    text: "Malesuada pellentesavida in fermentum. Ut eu sem integer vitae justo eget. Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Sit amet mattis vulputate enim. Viverra nam libero justo laoreet.",
-    date: now,
-    time: formattedTime,
+    text: "Malesuada pellentesque elit eget gravida cum sociis. Pretium viverra suspendisse potenti nullam ac tortor. Pharetra et ultrices neque ornare aenean euismod elementum nisi. Id eu nisl nunc mi ipsum.",
+    date: new Date("2024-04-10"),
+    time: formatTime(new Date("2024-04-10")),
     link: "/",
   },
   {
@@ -93,9 +92,9 @@ export const NEXT_EVENTS: INextEvent[] = [
     img: "/mock-data/mock-next-event-img.jpg",
     title:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-    text: "Malesuada pellentesavida in fermentum. Ut eu sem integer vitae justo eget. Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Sit amet mattis vulputate enim. Viverra nam libero justo laoreet.",
-    date: now,
-    time: formattedTime,
+    text: "Malesuada pellentesque elit eget gravida cum sociis. Pretium viverra suspendisse potenti nullam ac tortor. Pharetra et ultrices neque ornare aenean euismod elementum nisi. Id eu nisl nunc mi ipsum.",
+    date: new Date("2024-04-15"),
+    time: formatTime(new Date("2024-04-15")),
     link: "/",
   },
 ];

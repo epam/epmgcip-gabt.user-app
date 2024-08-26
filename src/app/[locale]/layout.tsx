@@ -23,11 +23,13 @@ export default function RootLayout({
   const messages = useMessages();
 
   return (
-    <section lang={locale}>
+    <section className="flex flex-col min-h-screen" lang={locale}>
       <Navbar />
-      <NextIntlClientProvider locale={locale} messages={messages}>
-        {children}
-      </NextIntlClientProvider>
+      <main className="flex-grow">
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </main>
       <Footer />
     </section>
   );

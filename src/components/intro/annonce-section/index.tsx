@@ -10,20 +10,32 @@ import annonceImage2 from "@/public/img-2.svg";
 import annonceImage3 from "@/public/img-3.svg";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { DotButton, useDotButton } from "../../slider/pagination";
+import { useEffect } from "react";
 
 export const AnnonceSection: React.FC = () => {
   const isMobile: boolean = useMediaQuery("(max-width: 768px)");
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: false,
+    loop: true,
     align: "center",
     skipSnaps: false,
     slidesToScroll: 1,
   });
 
-  const { selectedIndex, scrollSnaps, onDotButtonClick } =
-    useDotButton(emblaApi);
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
   const t = useTranslations("Index");
+
+  useEffect(() => {
+    if (emblaApi) {
+      const interval = setInterval(() => {
+        if (emblaApi) {
+          emblaApi.scrollNext();
+        }
+      }, 5000);
+
+      return () => clearInterval(interval);
+    }
+  }, [emblaApi]);
 
   return (
     <Box className='bg-[url("/background-lines.svg")] h-full object-cover w-full overflow-hidden bg-center bg-no-repeat'>

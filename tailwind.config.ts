@@ -16,6 +16,11 @@ const config: Config = {
         "contact-info-photo-img": "url('/contact-info/contact-info-img.jpg')",
       },
     },
+    rotate: {
+      "custom-90": "90deg",
+      "custom-180": "180deg",
+      "custom-270": "270deg",
+    },
     colors: {
       "white-text": "#FEFEFE",
       "dark-red": "#A80403",
@@ -29,6 +34,7 @@ const config: Config = {
       "light-yellow": "#F9EED7",
       black: "#160807",
       "warm-orange": "#E7B24C",
+      champagne: "#F9EED7",
     },
   },
   plugins: [],

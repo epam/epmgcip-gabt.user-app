@@ -3,44 +3,85 @@ import { useState } from "react";
 import { EventFilter } from "./event-filter.tsx/event-filter";
 import { NEXT_EVENTS, EventCategory } from "@/src/constants/next-events-mock";
 import { CurrentlyPlayingCard } from "../cards/currently-playing-card.tsx";
+import { INextEvent } from "@/src/constants/next-events-mock";
+import Image from "next/image";
+import { NumericPagination } from "../slider/numeric-pagination";
+
+const EVENTS_PER_PAGE = 5;
 
 export function EventList() {
-  const [filteredEvents, setFilteredEvents] = useState(NEXT_EVENTS);
+  const [filteredEvents, setFilteredEvents] =
+    useState<INextEvent[]>(NEXT_EVENTS);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const handleFilterChange = (category) => {
+  const handleFilterChange = (category: EventCategory) => {
     if (category === EventCategory.All) {
       setFilteredEvents(NEXT_EVENTS);
     } else {
       setFilteredEvents(NEXT_EVENTS.filter((event) => event.type === category));
     }
+    setCurrentPage(1);
   };
 
-  const groupEventsByDate = (events) => {
-    return events.reduce((acc, event) => {
-      const eventDate = event.date.toDateString();
-      if (!acc[eventDate]) {
-        acc[eventDate] = [];
-      }
-      acc[eventDate].push(event);
-      return acc;
-    }, {});
+  const paginateEvents = (events: INextEvent[], page: number): INextEvent[] => {
+    const startIndex = (page - 1) * EVENTS_PER_PAGE;
+    return events.slice(startIndex, startIndex + EVENTS_PER_PAGE);
   };
 
-  const groupedEvents = groupEventsByDate(filteredEvents);
+  const totalPages = Math.ceil(filteredEvents.length / EVENTS_PER_PAGE);
+  const eventsToShow = paginateEvents(filteredEvents, currentPage);
+
+  const groupEventsByDate = (
+    events: INextEvent[]
+  ): { [key: string]: INextEvent[] } => {
+    return events.reduce(
+      (acc: { [key: string]: INextEvent[] }, event: INextEvent) => {
+        const eventDate = event.date.toLocaleDateString("en-GB", {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+        });
+        const formattedDate = eventDate.replace(/^(\w+)\s/, "$1, ");
+        if (!acc[formattedDate]) {
+          acc[formattedDate] = [];
+        }
+        acc[formattedDate].push(event);
+        return acc;
+      },
+      {}
+    );
+  };
+
+  const groupedEvents = groupEventsByDate(eventsToShow);
 
   return (
     <div>
       <EventFilter onFilterChange={handleFilterChange} />
       {Object.keys(groupedEvents).map((date) => (
-        <div key={date} className="mb-8">
-          <h2 className="text-xl font-bold text-gray-800 mb-4">{date}</h2>
+        <div key={date} className="mb-8 ">
+          <h2 className="flex gap-3 text-xl font-bold text-gray-800 mb-4 bg-champagne px-16 py-8">
+            <Image
+              src={"/next-event-card/calendar.svg"}
+              alt="clock"
+              width={14}
+              height={16}
+            />
+            {date}
+          </h2>
           <div className="flex flex-col">
-            {groupedEvents[date].map((event) => (
+            {groupedEvents[date].map((event: INextEvent) => (
               <CurrentlyPlayingCard key={event.id} {...event} />
             ))}
           </div>
         </div>
       ))}
+      <div className="flex justify-center my-24">
+        <NumericPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      </div>
     </div>
   );
 }

@@ -2,10 +2,14 @@
 import { useState } from "react";
 import Image from "next/image";
 
+import {
+  EventCategory,
+  INextEvent,
+  NEXT_EVENTS,
+} from "@/src/constants/next-events-mock";
+
 import { EventFilter } from "./event-filter.tsx/event-filter";
-import { EventCategory, NEXT_EVENTS } from "@/src/constants/next-events-mock";
 import { CurrentlyPlayingCard } from "../cards/currently-playing-card.tsx";
-import { INextEvent } from "@/src/constants/next-events-mock";
 import { NumericPagination } from "../slider/numeric-pagination";
 
 const EVENTS_PER_PAGE: number = 5;

@@ -6,10 +6,11 @@ import { useTranslations } from "next-intl";
 import { Box, Section } from "@radix-ui/themes";
 import useEmblaCarousel from "embla-carousel-react";
 
-import { BasicButton } from "@/src/components/buttons";
 import annonceImage1 from "@/public/img-1.svg";
 import annonceImage2 from "@/public/img-2.svg";
 import annonceImage3 from "@/public/img-3.svg";
+
+import { BasicButton } from "@/src/components/buttons";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { DotButton, useDotButton } from "../../slider/pagination";
 
@@ -25,19 +26,17 @@ export const AnnonceSection: React.FC = () => {
     slidesToScroll: 1,
   });
 
-  const { 
-    selectedIndex, 
-    scrollSnaps, 
-    onDotButtonClick 
-  } = useDotButton(emblaApi);
-  
+  const { selectedIndex, scrollSnaps, onDotButtonClick } =
+    useDotButton(emblaApi);
 
   const t = useTranslations("Index");
 
   useEffect(() => {
-    if (!emblaApi) return;
+    if (!emblaApi) {
+      return;
+    }
 
-    const interval: NodeJS.Timeout | number = setInterval(() => {
+    const interval: NodeJS.Timeout = setInterval(() => {
       emblaApi.scrollNext();
     }, SCROLL_INTERVAL_MS);
 

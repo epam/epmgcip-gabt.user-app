@@ -2,10 +2,10 @@ import { Box, Flex, Text } from "@radix-ui/themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { Bona_Nova } from "next/font/google";
 
 import { INextEvent } from "@/src/constants/next-events-mock";
 import { IFont } from "@/src/constants/fonts";
-import { Bona_Nova } from "next/font/google";
 
 const bonnaNova: IFont = Bona_Nova({ subsets: ["latin"], weight: "400" });
 
@@ -20,7 +20,6 @@ export const CurrentlyPlayingCard: ({
   type,
   title,
   link,
-  date,
   img,
   time,
 }: INextEvent) => {

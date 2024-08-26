@@ -1,20 +1,21 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
+
 import { EventFilter } from "./event-filter.tsx/event-filter";
-import { NEXT_EVENTS, EventCategory } from "@/src/constants/next-events-mock";
+import { EventCategory, NEXT_EVENTS } from "@/src/constants/next-events-mock";
 import { CurrentlyPlayingCard } from "../cards/currently-playing-card.tsx";
 import { INextEvent } from "@/src/constants/next-events-mock";
-import Image from "next/image";
 import { NumericPagination } from "../slider/numeric-pagination";
 
-const EVENTS_PER_PAGE = 5;
+const EVENTS_PER_PAGE: number = 5;
 
 export function EventList() {
   const [filteredEvents, setFilteredEvents] =
     useState<INextEvent[]>(NEXT_EVENTS);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const handleFilterChange = (category: EventCategory) => {
+  const handleFilterChange = (category: EventCategory): void => {
     if (category === EventCategory.All) {
       setFilteredEvents(NEXT_EVENTS);
     } else {

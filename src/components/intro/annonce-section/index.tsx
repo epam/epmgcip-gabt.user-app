@@ -1,16 +1,19 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Box, Section } from "@radix-ui/themes";
 import useEmblaCarousel from "embla-carousel-react";
+
 import { BasicButton } from "@/src/components/buttons";
 import annonceImage1 from "@/public/img-1.svg";
 import annonceImage2 from "@/public/img-2.svg";
 import annonceImage3 from "@/public/img-3.svg";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { DotButton, useDotButton } from "../../slider/pagination";
-import { useEffect } from "react";
+
+const SCROLL_INTERVAL_MS: number = 5000;
 
 export const AnnonceSection: React.FC = () => {
   const isMobile: boolean = useMediaQuery("(max-width: 768px)");
@@ -22,19 +25,23 @@ export const AnnonceSection: React.FC = () => {
     slidesToScroll: 1,
   });
 
-  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
+  const { 
+    selectedIndex, 
+    scrollSnaps, 
+    onDotButtonClick 
+  } = useDotButton(emblaApi);
+  
+
   const t = useTranslations("Index");
 
   useEffect(() => {
-    if (emblaApi) {
-      const interval = setInterval(() => {
-        if (emblaApi) {
-          emblaApi.scrollNext();
-        }
-      }, 5000);
+    if (!emblaApi) return;
 
-      return () => clearInterval(interval);
-    }
+    const interval: NodeJS.Timeout | number = setInterval(() => {
+      emblaApi.scrollNext();
+    }, SCROLL_INTERVAL_MS);
+
+    return () => clearInterval(interval);
   }, [emblaApi]);
 
   return (
@@ -61,7 +68,7 @@ export const AnnonceSection: React.FC = () => {
               </div>
             </div>
             <div className="flex mt-4 justify-center">
-              {scrollSnaps.map((_, index) => (
+              {scrollSnaps.map((_: number, index: number) => (
                 <DotButton
                   key={index}
                   className={`mx-2 ${selectedIndex === index ? "border-1" : "bg-gray-300 border-none"}`}

@@ -1,21 +1,22 @@
 "use client";
 
-import { IFont } from "@/src/constants/fonts";
-import { EventCategory } from "@/src/constants/next-events-mock";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Bona_Nova } from "next/font/google";
-import { useState, ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
+
 import arrow from "@/public/arrow.svg";
-import Image from "next/image";
+import { IFont } from "@/src/constants/fonts";
+import { EventCategory } from "@/src/constants/next-events-mock";
 
 const categories = Object.values(EventCategory);
 const bonnaNova: IFont = Bona_Nova({ subsets: ["latin"], weight: "400" });
 
-interface EventFilterProps {
+interface IEventFilterProps {
   onFilterChange: (category: EventCategory) => void;
 }
 
-export function EventFilter({ onFilterChange }: EventFilterProps) {
+export function EventFilter({ onFilterChange }: IEventFilterProps) {
   const [selectedCategory, setSelectedCategory] = useState<EventCategory>(
     EventCategory.All
   );

@@ -1,14 +1,17 @@
 "use client";
 import { useMemo } from "react";
 
-interface ArrowSvgProps {
+interface IArrowSvgProps {
   direction: "left" | "right";
   color: string;
 }
 
-export const useArrowSvg = ({ direction, color }: ArrowSvgProps) => {
+export const useArrowSvg = ({
+  direction,
+  color,
+}: IArrowSvgProps): JSX.Element => {
   return useMemo(() => {
-    const rotate =
+    const rotate: string =
       direction === "left" ? "rotate-custom-90" : "rotate-custom-270";
     return (
       <svg

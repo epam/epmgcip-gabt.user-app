@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Box, Section } from "@radix-ui/themes";
@@ -53,10 +53,7 @@ export const AnnonceSection: React.FC = () => {
 
   const { startScrolling } = useAutoScroll(emblaApi, SCROLL_INTERVAL_MS);
 
-
-  if (emblaApi) {
-    startScrolling();
-  }
+  if (emblaApi) { startScrolling() }
 
   return (
     <Box className='bg-[url("/background-lines.svg")] h-full object-cover w-full overflow-hidden bg-center bg-no-repeat'>

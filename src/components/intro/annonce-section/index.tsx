@@ -52,8 +52,9 @@ export const AnnonceSection: React.FC = () => {
   const t = useTranslations("Index");
 
   const { startScrolling } = useAutoScroll(emblaApi, SCROLL_INTERVAL_MS);
-
-  if (emblaApi) { startScrolling() }
+  if (emblaApi) {
+    startScrolling();
+  }
 
   return (
     <Box className='bg-[url("/background-lines.svg")] h-full object-cover w-full overflow-hidden bg-center bg-no-repeat'>

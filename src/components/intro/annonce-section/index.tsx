@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState, useCallback } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Box, Section } from "@radix-ui/themes";
 import useEmblaCarousel from "embla-carousel-react";
+import { EmblaCarouselType } from "embla-carousel";
 
 import annonceImage1 from "@/public/img-1.svg";
 import annonceImage2 from "@/public/img-2.svg";
@@ -14,11 +15,30 @@ import { BasicButton } from "@/src/components/buttons";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { DotButton, useDotButton } from "../../slider/pagination";
 
-const SCROLL_INTERVAL_MS: number = 5000;
+const SCROLL_INTERVAL_MS = 5000;
+
+const useAutoScroll = (
+  emblaApi: EmblaCarouselType | undefined,
+  interval: number
+) => {
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  const startScrolling = useCallback(() => {
+    if (emblaApi && !isScrolling) {
+      setIsScrolling(true);
+      const scroll = () => {
+        emblaApi.scrollNext();
+        setTimeout(scroll, interval);
+      };
+      scroll();
+    }
+  }, [emblaApi, isScrolling, interval]);
+
+  return { startScrolling };
+};
 
 export const AnnonceSection: React.FC = () => {
-  const isMobile: boolean = useMediaQuery("(max-width: 768px)");
-
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "center",
@@ -26,25 +46,17 @@ export const AnnonceSection: React.FC = () => {
     slidesToScroll: 1,
   });
 
-  const { selectedIndex, scrollSnaps, onDotButtonClick } =  useDotButton(emblaApi);
+  const { selectedIndex, scrollSnaps, onDotButtonClick } =
+    useDotButton(emblaApi);
 
   const t = useTranslations("Index");
 
-  useEffect(() => {
-    if (!emblaApi) {
-      return;
-    }
+  const { startScrolling } = useAutoScroll(emblaApi, SCROLL_INTERVAL_MS);
 
-    const interval: NodeJS.Timeout = setInterval(() => {
-      emblaApi.scrollNext();
-    }, SCROLL_INTERVAL_MS);
 
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
-  }, [emblaApi]);
+  if (emblaApi) {
+    startScrolling();
+  }
 
   return (
     <Box className='bg-[url("/background-lines.svg")] h-full object-cover w-full overflow-hidden bg-center bg-no-repeat'>

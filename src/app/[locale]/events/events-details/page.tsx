@@ -1,5 +1,3 @@
-const EventsDetails = () => {
+export default function EventsDetails() {
   return <div>EventsDetails</div>;
-};
-
-export default EventsDetails;
+}

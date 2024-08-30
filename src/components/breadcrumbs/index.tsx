@@ -42,12 +42,16 @@ export const Breadcrumbs: FC = () => {
       .join(" ");
   };
 
-  // const routeForBreadcrum: (array: string[], index: number) => string = (
-  //   array: string[],
-  //   index: number
-  // ) => {
-
-  // };
+  const routeForBreadcrum: (endIndex: number) => string = (
+    endIndex: number
+  ) => {
+    const arrayOfStringRoutes: string[] = pathname.split("/");
+    const startIndex: number = 2;
+    const result: string = arrayOfStringRoutes
+      .slice(startIndex, endIndex + startIndex)
+      .join("/");
+    return result;
+  };
 
   return (
     <Box className="bg-breadcrumbs-bg">
@@ -58,11 +62,11 @@ export const Breadcrumbs: FC = () => {
               <Link href={"/"} className="hover:opacity-60">
                 Home
               </Link>
-              {getTextFromUrl().map((item: string) => (
+              {getTextFromUrl().map((item: string, index: number) => (
                 <>
                   <Text>{">"}</Text>
                   <Link
-                    href={`/${locale}/${item}`}
+                    href={`/${routeForBreadcrum(index + 1)}`}
                     className="hover:opacity-60"
                   >
                     {capitalizeFirstLetterOfEachWord(item)}

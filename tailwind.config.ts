@@ -14,6 +14,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "contact-info-contacts-bg": "url('/contact-info/contact-info-bg.png')",
         "contact-info-photo-img": "url('/contact-info/contact-info-img.jpg')",
+        "breadcrumbs-bg": "url('/breadcrumbs/breadcrumbs-bg.png')",
       },
     },
     colors: {
@@ -29,6 +30,7 @@ const config: Config = {
       "light-yellow": "#F9EED7",
       black: "#160807",
       "warm-orange": "#E7B24C",
+      "light-yellow-shade": "#F1E3BDCC",
     },
   },
   plugins: [],

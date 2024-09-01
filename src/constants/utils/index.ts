@@ -29,3 +29,9 @@ export function formatDateWithDayName(date: Date): string {
 
   return `${dayName}, ${day}.${month}.${year}`;
 }
+
+export function trimWithEllipsis(text: string, chars: number): string {
+  const trimmedValue: string = text?.slice(0, chars);
+
+  return `${trimmedValue}...`;
+}

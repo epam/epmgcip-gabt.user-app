@@ -121,7 +121,7 @@ const LocaleSwitcher: FC<ILocaleSwitcherProps> = ({ isMobile, localeRef }) => {
           {isDropdownVisible && (
             <div
               ref={dropdownRef}
-              className="absolute hidden mt-2 right-0 rounded border border-gray-300 p-5 bg-white-text md:block lg:mr-16 z-999"
+              className="absolute hidden mt-2 right-0 rounded border border-gray-300 p-5 bg-white-text md:block lg:mr-16 z-[999]"
             >
               {Object.values(Locale).map(
                 (locale) =>

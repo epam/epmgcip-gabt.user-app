@@ -4,6 +4,7 @@
     "home-page-welcome-description": "to the State Academic Bolshoi Theatre of Uzbekistan named after Alisher Navoi",
     "button-buy-tickets": "BUY TICKETS",
     "next-events": "Next events",
+    "latest-news": "Latest news",
     "ALL": "ALL",
     "OPERA": "OPERA",
     "BALLET": "BALLET",
@@ -13,7 +14,9 @@
     "TOURS": "TOURS",
     "event-type": "Event Type",
     "more-info": "More info",
-    "currently-playing":"Currently playing",
+    "currently-playing": "Currently playing",
+    "read-more": "READ MORE",
+    "read-all-news": "READ ALL NEWS",
     "h": "h",
     "see-all-events": "see all events",
     "ContactInfo": {

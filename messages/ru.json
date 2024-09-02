@@ -4,6 +4,7 @@
     "home-page-welcome-description": "в Государственный академический Большой театр Узбекистана имени Алишера Навои",
     "button-buy-tickets": "КУПИТЬ БИЛЕТЫ",
     "next-events": "[ru] Next events",
+    "latest-news": "[ru] Latest news",
     "ALL": "[ru] ALL",
     "OPERA": "[ru] OPERA",
     "BALLET": "[ru] BALLET",
@@ -14,7 +15,8 @@
     "event-type": "[ru] Event Type",
     "more-info": "[ru] More info",
     "currently-playing": "В данный момент проигрывается",
-
+    "read-more": "[ru] READ MORE",
+    "read-all-news": "[ru] READ ALL NEWS",
     "h": "ч",
     "see-all-events": "[ru] see all events",
     "ContactInfo": {

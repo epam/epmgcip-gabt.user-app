@@ -50,6 +50,7 @@ export const LatestNewsList: React.FC<unknown> = () => {
                   link={item.link}
                   description={item.description}
                   title={item.title}
+                  category={item.category}
                 />
               </div>
             ))}

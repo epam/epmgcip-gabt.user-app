@@ -3,13 +3,13 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Bona_Nova } from "next/font/google";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 
 import arrow from "@/public/arrow.svg";
 import { IFont } from "@/src/constants/fonts";
 import { EventCategory } from "@/src/constants/next-events-mock";
 
-const categories = Object.values(EventCategory);
+const categories: EventCategory[] = Object.values(EventCategory);
 const bonnaNova: IFont = Bona_Nova({ subsets: ["latin"], weight: "400" });
 
 interface IEventFilterProps {
@@ -17,13 +17,15 @@ interface IEventFilterProps {
 }
 
 export function EventFilter({ onFilterChange }: IEventFilterProps) {
-  const [selectedCategory, setSelectedCategory] = useState<EventCategory>(
-    EventCategory.All
-  );
+  const [selectedCategory, setSelectedCategory]: [
+    EventCategory,
+    Dispatch<SetStateAction<EventCategory>>,
+  ] = useState<EventCategory>(EventCategory.All);
+
   const t: (arg: string) => string = useTranslations("Index");
 
-  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const category = event.target.value as EventCategory;
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>): void => {
+    const category: EventCategory = event.target.value as EventCategory;
     setSelectedCategory(category);
     onFilterChange(category);
   };
@@ -44,7 +46,7 @@ export function EventFilter({ onFilterChange }: IEventFilterProps) {
           className="block cursor-pointer mt-1 p-4 border border-gray-300 
           text-center text-gray-700 appearance-none  pr-24 bg-white"
         >
-          {categories.map((category) => (
+          {categories.map((category: EventCategory) => (
             <option key={category} value={category} className="text-gray-700">
               {category}
             </option>

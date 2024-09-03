@@ -1,4 +1,12 @@
-import { FC, RefObject, useEffect, useRef, useState } from "react";
+import {
+  Dispatch,
+  FC,
+  RefObject,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import Image from "next/image";
@@ -15,9 +23,18 @@ interface ILocaleSwitcherProps {
 const LocaleSwitcher: FC<ILocaleSwitcherProps> = ({ isMobile, localeRef }) => {
   const router: AppRouterInstance = useRouter();
   const pathname: string = usePathname();
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-  const [currentLocale, setCurrentLocale] = useState<Locale>(Locale.UZ);
-  const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
+  const [isMounted, setIsMounted]: [
+    boolean,
+    Dispatch<SetStateAction<boolean>>,
+  ] = useState<boolean>(false);
+  const [currentLocale, setCurrentLocale]: [
+    Locale,
+    Dispatch<SetStateAction<Locale>>,
+  ] = useState<Locale>(Locale.UZ);
+  const [isDropdownVisible, setIsDropdownVisible]: [
+    boolean,
+    Dispatch<SetStateAction<boolean>>,
+  ] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import Image from "next/image";
 
 import {
@@ -15,9 +15,15 @@ import { NumericPagination } from "../slider/numeric-pagination";
 const EVENTS_PER_PAGE: number = 5;
 
 export function EventList() {
-  const [filteredEvents, setFilteredEvents] =
-    useState<INextEvent[]>(NEXT_EVENTS);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [filteredEvents, setFilteredEvents]: [
+    INextEvent[],
+    Dispatch<SetStateAction<INextEvent[]>>,
+  ] = useState<INextEvent[]>(NEXT_EVENTS);
+
+  const [currentPage, setCurrentPage]: [
+    number,
+    Dispatch<SetStateAction<number>>,
+  ] = useState<number>(1);
 
   const handleFilterChange = (category: EventCategory): void => {
     if (category === EventCategory.All) {
@@ -29,19 +35,22 @@ export function EventList() {
   };
 
   const paginateEvents = (events: INextEvent[], page: number): INextEvent[] => {
-    const startIndex = (page - 1) * EVENTS_PER_PAGE;
+    const startIndex: number = (page - 1) * EVENTS_PER_PAGE;
     return events.slice(startIndex, startIndex + EVENTS_PER_PAGE);
   };
 
-  const totalPages = Math.ceil(filteredEvents.length / EVENTS_PER_PAGE);
-  const eventsToShow = paginateEvents(filteredEvents, currentPage);
+  const totalPages: number = Math.ceil(filteredEvents.length / EVENTS_PER_PAGE);
+  const eventsToShow: INextEvent[] = paginateEvents(
+    filteredEvents,
+    currentPage
+  );
 
   const groupEventsByDate = (
     events: INextEvent[]
   ): { [key: string]: INextEvent[] } => {
     return events.reduce(
       (acc: { [key: string]: INextEvent[] }, event: INextEvent) => {
-        const eventDate = event.date.toLocaleDateString("en-GB", {
+        const eventDate: string = event.date.toLocaleDateString("en-GB", {
           weekday: "long",
           day: "numeric",
           month: "long",
@@ -62,7 +71,7 @@ export function EventList() {
   return (
     <div>
       <EventFilter onFilterChange={handleFilterChange} />
-      {Object.keys(groupedEvents).map((date) => (
+      {Object.keys(groupedEvents).map((date: string) => (
         <div key={date} className="mb-8 ">
           <h2 className="flex gap-3 text-xl font-bold text-gray-800 mb-4 bg-champagne px-16 py-8">
             <Image

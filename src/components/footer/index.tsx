@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Box, Section, Text } from "@radix-ui/themes";
@@ -21,7 +21,10 @@ import CollapsibleBox from "../boxes/collapsible-box/collapsible-box";
 const ICON_SIZE: number = 16;
 
 const CurrentFooterSection: React.FC = () => {
-  const [visibleBox, setVisibleBox] = useState<string | null>(null);
+  const [visibleBox, setVisibleBox]: [
+    string | null,
+    Dispatch<SetStateAction<string | null>>,
+  ] = useState<string | null>(null);
 
   const handleToggle =
     (box: string): (() => void) =>

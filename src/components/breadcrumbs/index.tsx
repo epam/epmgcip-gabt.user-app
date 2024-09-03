@@ -18,10 +18,17 @@ export const Breadcrumbs: FC = () => {
 
   const getTextFromUrl: () => string[] = () => {
     const transformedText: string = pathname.replace(`/${locale}/`, "");
-    return transformedText
+    const penultimateIndex: number = 2;
+    const result: string[] = transformedText
       .split("/")
       .filter((part: string) => part !== "")
       .map((part: string) => part.replace(/-/g, " "));
+
+    if (result[result.length - penultimateIndex] === "events details") {
+      result.pop();
+    }
+
+    return result;
   };
 
   const capitalizeFirstLetter: (string: string) => string = (
@@ -50,6 +57,7 @@ export const Breadcrumbs: FC = () => {
     const result: string = arrayOfStringRoutes
       .slice(startIndex, endIndex + startIndex)
       .join("/");
+
     return result;
   };
 
@@ -65,12 +73,18 @@ export const Breadcrumbs: FC = () => {
               {getTextFromUrl().map((item: string, index: number) => (
                 <>
                   <Text>{">"}</Text>
-                  <Link
-                    href={`/${routeForBreadcrum(index + 1)}`}
-                    className="hover:opacity-60"
-                  >
-                    {capitalizeFirstLetterOfEachWord(item)}
-                  </Link>
+                  {index === getTextFromUrl().length - 1 ? (
+                    <Text className="hover:opacity-60 cursor-pointer">
+                      {capitalizeFirstLetterOfEachWord(item)}
+                    </Text>
+                  ) : (
+                    <Link
+                      href={`/${routeForBreadcrum(index + 1)}`}
+                      className="hover:opacity-60"
+                    >
+                      {capitalizeFirstLetterOfEachWord(item)}
+                    </Link>
+                  )}
                 </>
               ))}
             </Text>

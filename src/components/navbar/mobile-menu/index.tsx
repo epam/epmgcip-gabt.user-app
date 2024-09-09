@@ -41,7 +41,7 @@ const MobileNavMenu: FC<IMobileNavMenuProps> = ({
   return (
     <div
       ref={menuRef}
-      className={`md:hidden fixed top-32 inset-x-0 bg-white-text border-b-2 border-gray-600 z-20 transform ${
+      className={`md:hidden fixed top-34 inset-x-0 bg-white-text border-b-2 border-gray-600 z-20 transform ${
         isOpen ? "translate-x-0" : "translate-x-full"
       }`}
       style={{

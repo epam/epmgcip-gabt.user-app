@@ -1,26 +1,31 @@
 "use client";
 import { Dispatch, SetStateAction, useState } from "react";
 
-import { NumericPagination } from "../slider/numeric-pagination";
 import {
   ILatestNews,
   LATEST_NEWS_DATA,
 } from "@/src/constants/latest-news-mock";
+import { EventCategory } from "@/src/constants/next-events-mock";
+
+import { NumericPagination } from "../slider/numeric-pagination";
 import { LatestNewsCard } from "../cards";
 import { NewsFilter } from "./news-filter/news-filter";
-import { EventCategory } from "@/src/constants/next-events-mock";
 
 const NEWS_PER_PAGE: number = 9;
 
 export function LatestNewsPage() {
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPage, setCurrentPage]: [
+    number,
+    Dispatch<SetStateAction<number>>,
+  ] = useState<number>(1);
+
   const [filteredEvents, setFilteredEvents]: [
     ILatestNews[],
     Dispatch<SetStateAction<ILatestNews[]>>,
   ] = useState<ILatestNews[]>(LATEST_NEWS_DATA);
 
   const paginateNews = (news: ILatestNews[], page: number): ILatestNews[] => {
-    const startIndex = (page - 1) * NEWS_PER_PAGE;
+    const startIndex: number = (page - 1) * NEWS_PER_PAGE;
     return news.slice(startIndex, startIndex + NEWS_PER_PAGE);
   };
 
@@ -32,7 +37,9 @@ export function LatestNewsPage() {
       setFilteredEvents(LATEST_NEWS_DATA);
     } else {
       setFilteredEvents(
-        LATEST_NEWS_DATA.filter((event) => event.category === category)
+        LATEST_NEWS_DATA.filter(
+          (event: ILatestNews) => event.category === category
+        )
       );
     }
     setCurrentPage(1);
@@ -43,9 +50,9 @@ export function LatestNewsPage() {
       <NewsFilter onFilterChange={handleFilterChange} />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-3 gap-8">
-        {newsToShow.map((news) => (
-          <div className="flex justify-center">
-            <LatestNewsCard key={news.id} {...news} />
+        {newsToShow.map((news: ILatestNews) => (
+          <div key={news.id} className="flex justify-center">
+            <LatestNewsCard {...news} />
           </div>
         ))}
       </div>

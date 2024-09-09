@@ -11,14 +11,16 @@ export interface ILatestNews {
 }
 
 const getRandomCategory = (): EventCategory => {
-  const categories = Object.values(EventCategory);
-  const randomIndex = Math.floor(Math.random() * categories.length);
+  const categories: EventCategory[] = Object.values(
+    EventCategory
+  ) as EventCategory[];
+  const randomIndex: number = Math.floor(Math.random() * categories.length);
   return categories[randomIndex];
 };
 
 const generateRandomDate = (start: Date, end: Date): Date => {
-  const range = end.getTime() - start.getTime();
-  const randomTime = Math.random() * range + start.getTime();
+  const range: number = end.getTime() - start.getTime();
+  const randomTime: number = Math.random() * range + start.getTime();
   return new Date(randomTime);
 };
 
@@ -29,15 +31,15 @@ const getFormattedDate = (date: Date): string => {
   return `${day}. ${month} ${year}`;
 };
 
-const startDate = new Date("2023-01-01T00:00:00.000Z");
-const endDate = new Date("2023-12-31T23:59:59.999Z");
+const startDate: Date = new Date("2023-01-01T00:00:00.000Z");
+const endDate: Date = new Date("2023-12-31T23:59:59.999Z");
 
 export const LATEST_NEWS_DATA: ILatestNews[] = Array.from(
   { length: 24 },
   (_, index) => {
-    const randomDate = generateRandomDate(startDate, endDate);
-    const formattedDate = getFormattedDate(randomDate);
-    const randomCategory = getRandomCategory();
+    const randomDate: Date = generateRandomDate(startDate, endDate);
+    const formattedDate: string = getFormattedDate(randomDate);
+    const randomCategory: EventCategory = getRandomCategory();
 
     return {
       id: index + 1,

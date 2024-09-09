@@ -8,11 +8,11 @@ interface INumericPaginationProps {
   onPageChange: (page: number) => void;
 }
 
-export const NumericPagination: React.FC<INumericPaginationProps> = ({
+export function NumericPagination({
   currentPage,
   totalPages,
   onPageChange,
-}) => {
+}: INumericPaginationProps) {
   const pages: number[] = Array.from(
     { length: totalPages },
     (_: unknown, index: number) => index + 1
@@ -61,4 +61,4 @@ export const NumericPagination: React.FC<INumericPaginationProps> = ({
       </button>
     </div>
   );
-};
+}

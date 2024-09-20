@@ -3,7 +3,10 @@ import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import "@radix-ui/themes/styles.css";
 import "./[locale]/globals.css";
-import { Theme } from "@radix-ui/themes";
+import { Box, Theme } from "@radix-ui/themes";
+
+import { Navbar } from "@/src/components/navbar";
+import Footer from "@/src/components/footer";
 
 const jost = Jost({ subsets: ["latin"] });
 
@@ -23,7 +26,14 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={jost.className}>
+        <Box className="relative z-30 px-4 py-2 flex justify-center items-center text-[13px] text-center text-white  bg-footer-bg">
+          Lorem Ipsum dolor sit ametxa Lorem Ipsum dolor sit ametxaLorem Ipsum
+          dolor sit ametxa
+        </Box>
+        <Navbar />
+
         <Theme>{children}</Theme>
+        <Footer />
       </body>
     </html>
   );

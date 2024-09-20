@@ -1,4 +1,12 @@
-import { FC, RefObject, useEffect, useRef, useState } from "react";
+import {
+  Dispatch,
+  FC,
+  RefObject,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import Image from "next/image";
@@ -15,10 +23,20 @@ interface ILocaleSwitcherProps {
 const LocaleSwitcher: FC<ILocaleSwitcherProps> = ({ isMobile, localeRef }) => {
   const router: AppRouterInstance = useRouter();
   const pathname: string = usePathname();
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-  const [currentLocale, setCurrentLocale] = useState<Locale>(Locale.UZ);
-  const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
+  const [isMounted, setIsMounted]: [
+    boolean,
+    Dispatch<SetStateAction<boolean>>,
+  ] = useState<boolean>(false);
+  const [currentLocale, setCurrentLocale]: [
+    Locale,
+    Dispatch<SetStateAction<Locale>>,
+  ] = useState<Locale>(Locale.UZ);
+  const [isDropdownVisible, setIsDropdownVisible]: [
+    boolean,
+    Dispatch<SetStateAction<boolean>>,
+  ] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setIsMounted(true);
@@ -56,23 +74,20 @@ const LocaleSwitcher: FC<ILocaleSwitcherProps> = ({ isMobile, localeRef }) => {
   const handleClickOutside = (event: MouseEvent): void => {
     if (
       dropdownRef.current &&
-      !dropdownRef.current.contains(event.target as Node)
+      !dropdownRef.current.contains(event.target as Node) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(event.target as Node)
     ) {
       setIsDropdownVisible(false);
     }
   };
 
   useEffect(() => {
-    if (isDropdownVisible) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isDropdownVisible]);
+  }, []);
 
   if (!isMounted) {
     return null;
@@ -106,8 +121,9 @@ const LocaleSwitcher: FC<ILocaleSwitcherProps> = ({ isMobile, localeRef }) => {
       ) : (
         <div className="relative">
           <button
+            ref={buttonRef}
             onClick={toggleDropdownVisibility}
-            className={`flex items-center gap-2 ${buttonClass(currentLocale)}`}
+            className={`flex items-center gap-2 lg:mr-16 ${buttonClass(currentLocale)}`}
           >
             {localeLiterals.languages[currentLocale]}
             <Image
@@ -122,7 +138,7 @@ const LocaleSwitcher: FC<ILocaleSwitcherProps> = ({ isMobile, localeRef }) => {
           {isDropdownVisible && (
             <div
               ref={dropdownRef}
-              className="absolute hidden mt-2 right-0 rounded border border-gray-300 p-5 bg-white-text md:block"
+              className="absolute hidden mt-2 right-0 rounded border border-gray-300 p-5 bg-white-text md:block lg:mr-16 z-[999]"
             >
               {Object.values(Locale).map(
                 (locale) =>

@@ -3,8 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 
-import { Navbar } from "@/src/components/navbar";
-import Footer from "@/src/components/footer";
+import { Breadcrumbs } from "@/src/components/breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,12 +22,13 @@ export default function RootLayout({
   const messages = useMessages();
 
   return (
-    <section lang={locale}>
-      <Navbar />
-      <NextIntlClientProvider locale={locale} messages={messages}>
-        {children}
-      </NextIntlClientProvider>
-      <Footer />
+    <section className="flex flex-col min-h-screen" lang={locale}>
+      <main className="flex-grow">
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Breadcrumbs />
+          {children}
+        </NextIntlClientProvider>
+      </main>
     </section>
   );
 }

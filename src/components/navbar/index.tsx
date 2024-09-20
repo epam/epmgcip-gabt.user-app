@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { Flex } from "@radix-ui/themes";
 import Image from "next/image";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
@@ -14,10 +14,16 @@ import MenuButton from "../buttons/menu-buttn";
 import useMediaQuery from "../hooks/useMediaQuery";
 
 export const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [openItems, setOpenItems] = useState<Record<number, boolean>>({});
-  const [isLocaleSwitcherVisible, setLocaleSwitcherVisible] =
+  const [isOpen, setIsOpen]: [boolean, Dispatch<SetStateAction<boolean>>] =
     useState<boolean>(false);
+  const [openItems, setOpenItems]: [
+    Record<number, boolean>,
+    Dispatch<SetStateAction<Record<number, boolean>>>,
+  ] = useState<Record<number, boolean>>({});
+  const [isLocaleSwitcherVisible, setLocaleSwitcherVisible]: [
+    boolean,
+    Dispatch<SetStateAction<boolean>>,
+  ] = useState<boolean>(false);
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);

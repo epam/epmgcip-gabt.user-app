@@ -17,6 +17,11 @@ const config: Config = {
         "breadcrumbs-bg": "url('/breadcrumbs/breadcrumbs-bg.png')",
       },
     },
+    rotate: {
+      "custom-90": "90deg",
+      "custom-180": "180deg",
+      "custom-270": "270deg",
+    },
     colors: {
       "white-text": "#FEFEFE",
       "dark-red": "#A80403",
@@ -30,6 +35,7 @@ const config: Config = {
       "light-yellow": "#F9EED7",
       black: "#160807",
       "warm-orange": "#E7B24C",
+      champagne: "#F9EED7",
       "light-yellow-shade": "#F1E3BDCC",
     },
   },

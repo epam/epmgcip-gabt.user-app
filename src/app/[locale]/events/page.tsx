@@ -1,3 +1,9 @@
+import { EventList } from "@/src/components/events";
+
 export default function Events() {
-  return <div>Events</div>;
+  return (
+    <main>
+      <EventList />
+    </main>
+  );
 }

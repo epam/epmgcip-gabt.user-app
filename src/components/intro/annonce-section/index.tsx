@@ -10,8 +10,8 @@ import { EmblaCarouselType } from "embla-carousel";
 import annonceImage1 from "@/public/img-1.svg";
 import annonceImage2 from "@/public/img-2.svg";
 import annonceImage3 from "@/public/img-3.svg";
-
 import { BasicButton } from "@/src/components/buttons";
+
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { DotButton, useDotButton } from "../../slider/pagination";
 

@@ -100,7 +100,7 @@ export const Navbar: React.FC = () => {
         </Flex>
 
         {isOpen && (
-          <div className="fixed top-32 inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-10 md:hidden"></div>
+          <div className="fixed top-48 inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-10 md:hidden"></div>
         )}
 
         <MobileNavMenu

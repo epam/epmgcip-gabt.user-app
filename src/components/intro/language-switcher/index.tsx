@@ -1,6 +1,5 @@
 import {
   Dispatch,
-  FC,
   RefObject,
   SetStateAction,
   useEffect,
@@ -20,7 +19,7 @@ interface ILocaleSwitcherProps {
   localeRef?: RefObject<HTMLDivElement>;
 }
 
-const LocaleSwitcher: FC<ILocaleSwitcherProps> = ({ isMobile, localeRef }) => {
+function LocaleSwitcher({ isMobile, localeRef }: ILocaleSwitcherProps) {
   const router: AppRouterInstance = useRouter();
   const pathname: string = usePathname();
   const [isMounted, setIsMounted]: [
@@ -35,7 +34,7 @@ const LocaleSwitcher: FC<ILocaleSwitcherProps> = ({ isMobile, localeRef }) => {
     boolean,
     Dispatch<SetStateAction<boolean>>,
   ] = useState<boolean>(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLInputElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -161,6 +160,6 @@ const LocaleSwitcher: FC<ILocaleSwitcherProps> = ({ isMobile, localeRef }) => {
       )}
     </div>
   );
-};
+}
 
 export default LocaleSwitcher;

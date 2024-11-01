@@ -26,7 +26,6 @@ After building, you can start the application:
 npm run start
 ```
 
-
 ## Environment Variables
 
 The following environment variables are required for Firebase configuration:
@@ -38,3 +37,7 @@ The following environment variables are required for Firebase configuration:
 - NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
 - NEXT_PUBLIC_FIREBASE_APP_ID
 - NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+
+## Deployment
+
+The app is deployed manually on the Firebase hosting: https://uz-gabt-webapp.web.app/

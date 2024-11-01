@@ -1,0 +1,34 @@
+{
+  "Index": {
+    "home-page-welcome": "WELCOME",
+    "home-page-welcome-description": "to the State Academic Bolshoi Theatre of Uzbekistan named after Alisher Navoi",
+    "button-buy-tickets": "BUY TICKETS",
+    "next-events": "Next events",
+    "latest-news": "Latest news",
+    "ALL": "ALL",
+    "OPERA": "OPERA",
+    "BALLET": "BALLET",
+    "CHILDREN'S": "CHILDREN'S",
+    "MUSICAL": "MUSICAL",
+    "CONCERTS": "CONCERTS",
+    "TOURS": "TOURS",
+    "event-type": "Event Type",
+    "more-info": "More info",
+    "currently-playing": "Currently playing",
+    "read-more": "READ MORE",
+    "read-all-news": "READ ALL NEWS",
+    "h": "h",
+    "see-all-events": "see all events",
+    "ContactInfo": {
+      "contact-info": "CONTACT INFO",
+      "ticket-office": "Ticket office:",
+      "administrator": "Administrator:",
+      "deputy-director": "Deputy Director for the audience:",
+      "phone-fax": "Phone / fax:",
+      "e-mail": "E-mail:",
+      "address": "Zip code 100029. 28, Zarafshon str., Tashkent, Uzbekistan",
+      "where-to-find-us": "where to find us",
+      "more-about-us": "more about us"
+    }
+  }
+}

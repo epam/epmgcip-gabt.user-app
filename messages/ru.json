@@ -1,0 +1,34 @@
+{
+  "Index": {
+    "home-page-welcome": "Добро пожаловать",
+    "home-page-welcome-description": "в Государственный академический Большой театр Узбекистана имени Алишера Навои",
+    "button-buy-tickets": "КУПИТЬ БИЛЕТЫ",
+    "next-events": "[ru] Next events",
+    "latest-news": "[ru] Latest news",
+    "ALL": "[ru] ALL",
+    "OPERA": "[ru] OPERA",
+    "BALLET": "[ru] BALLET",
+    "CHILDREN'S": "[ru] CHILDREN'S",
+    "MUSICAL": "[ru] MUSICAL",
+    "CONCERTS": "[ru] CONCERTS",
+    "TOURS": "[ru] TOURS",
+    "event-type": "[ru] Event Type",
+    "more-info": "[ru] More info",
+    "currently-playing": "В данный момент проигрывается",
+    "read-more": "[ru] READ MORE",
+    "read-all-news": "[ru] READ ALL NEWS",
+    "h": "ч",
+    "see-all-events": "[ru] see all events",
+    "ContactInfo": {
+      "contact-info": "[ru] CONTACT INFO",
+      "ticket-office": "[ru] Ticket office:",
+      "administrator": "[ru] Administrator:",
+      "deputy-director": "[ru] Deputy Director for the audience:",
+      "phone-fax": "[ru] Phone / fax:",
+      "e-mail": "[ru] E-mail:",
+      "address": "[ru] Zip code 100029. 28, Zarafshon str., Tashkent, Uzbekistan",
+      "where-to-find-us": "[ru] where to find us",
+      "more-about-us": "[ru] more about us"
+    }
+  }
+}

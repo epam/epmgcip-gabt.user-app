@@ -42,7 +42,7 @@ export const Breadcrumbs: FC = () => {
       .join(" ");
   };
 
-  const routeForBreadcrum: (endIndex: number) => string = (
+  const routeForBreadcrumb: (endIndex: number) => string = (
     endIndex: number
   ) => {
     const arrayOfStringRoutes: string[] = pathname.split("/");
@@ -63,15 +63,15 @@ export const Breadcrumbs: FC = () => {
                 Home
               </Link>
               {getTextFromUrl().map((item: string, index: number) => (
-                <>
+                <div key={index} className="flex items-center">
                   <Text>{">"}</Text>
                   <Link
-                    href={`/${routeForBreadcrum(index + 1)}`}
+                    href={`/${routeForBreadcrumb(index + 1)}`}
                     className="hover:opacity-60"
                   >
                     {capitalizeFirstLetterOfEachWord(item)}
                   </Link>
-                </>
+                </div>
               ))}
             </Text>
           </Box>
